@@ -1,0 +1,59 @@
+/* Global styles */
+
+.container {
+  width: min(1280px, 94%);
+  margin: 0 auto;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2933;
+  line-height: 1.6;
+}
+
+/* Shared buttons */
+
+.button {
+  display: inline-block;
+  padding: 0.85rem 1.35rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  margin-right: 0.75rem;
+  box-sizing: border-box;
+}
+
+.primary {
+  background: #700613;
+  color: white;
+  border: 1px solid white;
+}
+
+.secondary {
+  background: white;
+  color: #0b4a6f;
+  border: 1px solid #0b4a6f;
+}
+
+.page {
+  padding: 4rem 0;
+  min-height: 60vh;
+}
+
+.page h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #0b3554;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+

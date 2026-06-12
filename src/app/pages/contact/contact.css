@@ -1,0 +1,166 @@
+.contact-page {
+  padding: 5rem 0;
+  background: #fbf8f2;
+  min-height: calc(100vh - 90px);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.section-eyebrow {
+  color: #0b4a6f;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #0b3554;
+  font-size: 3rem;
+  line-height: 1.1;
+  margin: 0 0 1.5rem;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info h1 {
+  font-size: 3.0rem;
+  line-height: 1.05;
+  color: #222;
+  margin-bottom: 1.5rem;
+}
+
+.contact-card,
+.map-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+}
+
+.contact-card {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.contact-card h2 {
+  color: #7a1020;
+  font-size: 2.35rem;
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+  line-height: 1.15;
+}
+
+.contact-card p {
+  margin: 0 0 1.5rem;
+  font-size: 1.3rem;
+}
+
+.contact-card strong {
+  font-size: 1.15rem;
+}
+
+.contact-card a {
+  color: #0b4a6f;
+}
+
+.contact-card a[href^="tel"] {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.contact-card .address-link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-card .address-link:hover {
+  text-decoration: underline;
+  color: #0b4a6f;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-weight: 700;
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    padding: 0.6rem 2.0rem;
+    border-radius: 6px;
+}
+
+.primary {
+  background: #0b4a6f;
+  color: white !important;
+  border: 1px solid #0b4a6f;
+}
+
+.map-card {
+  overflow: hidden;
+  min-height: 650px;
+}
+
+.map-card iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 650px;
+  border: 0;
+}
+
+@media (max-width: 850px) {
+  .contact-page {
+    padding: 2rem 0;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    min-height: auto;
+  }
+
+  .contact-info h1 {
+    font-size: 2.4rem;
+    line-height: 1.1;
+  }
+
+  .contact-card {
+    padding: 1.25rem;
+  }
+
+  .contact-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-card p {
+    font-size: 1.1rem;
+  }
+
+  .contact-card a[href^="tel"] {
+    font-size: 1.25rem;
+  }
+
+  .button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+
+  .map-card,
+  .map-card iframe {
+    min-height: 360px;
+  }
+}

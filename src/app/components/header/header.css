@@ -1,0 +1,77 @@
+.site-header {
+  background: #0b4a6f;
+  color: white;
+  padding: 0.15rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  text-decoration: none;
+}
+
+.logo {
+  height: 82px;
+  width: auto;
+  display: block;
+  background: transparent;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2.25rem;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 650;
+  transition: opacity 0.2s;
+}
+
+.main-nav a:hover {
+  opacity: 0.8;
+}
+
+.facebook-cta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: white;
+  text-decoration: none;
+  justify-self: end;
+}
+
+.facebook-logo {
+  width: 42px;
+  height: 42px;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid white;
+}
+
+.facebook-text {
+  font-weight: 650;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.facebook-text small {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  opacity: 0.95;
+}
