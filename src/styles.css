@@ -1,7 +1,7 @@
 /* Global styles */
 
 .container {
-  width: min(1280px, 94%);
+  width: min(1440px, 94%);
   margin: 0 auto;
 }
 
@@ -44,6 +44,8 @@ body {
   border: 1px solid #0b4a6f;
 }
 
+/* Page styles */
+
 .page {
   padding: 4rem 0;
   min-height: 60vh;
@@ -55,5 +57,6 @@ body {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
+
 
 
