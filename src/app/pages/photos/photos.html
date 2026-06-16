@@ -1,7 +1,107 @@
-<div class="container page">
-  <h1>Photos</h1>
+<section class="photos-page">
+  <div class="container">
+    <div class="page-header">
+      <p class="section-eyebrow">Photos & Events</p>
+      <h1>Community Photos</h1>
+      <p>
+        A look at recent moments, celebrations, and everyday life at The Shepherds Inn.
+      </p>
+    </div>
 
-  <p>
-    Browse recent photos and community events.
-  </p>
-</div>
+    <div class="gallery-layout">
+      <button
+        type="button"
+        class="photo-arrow"
+        aria-label="Previous photo"
+        (click)="previousPhoto()"
+      >
+        ◀
+      </button>
+
+      <div class="featured-photo-card">
+        <img
+          [src]="selectedPhoto.src"
+          [alt]="selectedPhoto.alt"
+          class="featured-photo"
+        />
+
+        <div class="featured-photo-info">
+          <h2>{{ selectedPhoto.event || selectedMonth.title }}</h2>
+          <p>{{ selectedMonth.title }}</p>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="photo-arrow"
+        aria-label="Next photo"
+        (click)="nextPhoto()"
+      >
+        ▶
+      </button>
+    </div>
+
+    <div class="month-nav">
+      <button
+        type="button"
+        class="month-link"
+        [disabled]="!newerMonth"
+        (click)="showNewerMonth()"
+      >
+        @if (newerMonth) {
+          ◀ {{ newerMonth.title }}
+        }
+      </button>
+
+      <h2>{{ selectedMonth.title }}</h2>
+
+      <button
+        type="button"
+        class="month-link"
+        [disabled]="!olderMonth"
+        (click)="showOlderMonth()"
+      >
+        @if (olderMonth) {
+          {{ olderMonth.title }} ▶
+        }
+      </button>
+    </div>
+
+    <div class="thumbnail-area">
+      <button
+        type="button"
+        class="thumbnail-scroll-button"
+        aria-label="Scroll thumbnails left"
+        (click)="scrollThumbnails('left')"
+      >
+        ◀
+      </button>
+
+      <div class="thumbnail-strip" #thumbnailStrip>
+        @for (photo of selectedMonth.photos; track photo.src) {
+          <button
+            type="button"
+            class="thumbnail-button"
+            [class.active]="photo.src === selectedPhoto.src"
+            (click)="selectPhoto(photo)"
+          >
+            <img [src]="photo.src" [alt]="photo.alt" />
+
+            @if (photo.event) {
+              <span>{{ photo.event }}</span>
+            }
+          </button>
+        }
+      </div>
+
+      <button
+        type="button"
+        class="thumbnail-scroll-button"
+        aria-label="Scroll thumbnails right"
+        (click)="scrollThumbnails('right')"
+      >
+        ▶
+      </button>
+    </div>
+  </div>
+</section>
