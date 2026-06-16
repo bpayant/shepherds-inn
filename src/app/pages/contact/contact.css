@@ -1,5 +1,5 @@
 .contact-page {
-  padding: 5rem 0;
+  padding: 3rem 0;
   background: #fbf8f2;
   min-height: calc(100vh - 90px);
 }
@@ -17,27 +17,20 @@
   letter-spacing: 0.08em;
   font-weight: 800;
   font-size: 0.85rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 h1 {
   font-family: Georgia, "Times New Roman", serif;
   color: #0b3554;
-  font-size: 3rem;
+  font-size: 3.0rem;
   line-height: 1.1;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.25rem;
 }
 
 .contact-info {
   display: flex;
   flex-direction: column;
-}
-
-.contact-info h1 {
-  font-size: 3.0rem;
-  line-height: 1.05;
-  color: #222;
-  margin-bottom: 1.5rem;
 }
 
 .contact-card,
@@ -48,39 +41,38 @@ h1 {
 }
 
 .contact-card {
-  padding: 1.5rem;
+  padding: 1.0rem;
   flex: 1;
+}
+
+.contact-info h1 {
+  font-size: 3.0rem;
+  line-height: 1.05;
+  color: #222;
+  margin-bottom: 1.5rem;
 }
 
 .contact-card h2 {
   color: #7a1020;
-  font-size: 2.35rem;
+  font-size: 2.5rem;
   margin-top: 0;
-  margin-bottom: 1.75rem;
+  margin-bottom: 0.75rem;
   line-height: 1.15;
 }
 
 .contact-card p {
-  margin: 0 0 1.5rem;
+  margin: 0 0 0.75rem;
   font-size: 1.3rem;
 }
 
 .contact-card strong {
-  font-size: 1.15rem;
-}
-
-.contact-card a {
-  color: #0b4a6f;
-}
-
-.contact-card a[href^="tel"] {
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-decoration: none;
+  font-size: 1.1rem;
 }
 
 .contact-card .address-link {
-  color: inherit;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2a82b4de;
   text-decoration: none;
 }
 
@@ -89,23 +81,18 @@ h1 {
   color: #0b4a6f;
 }
 
-.button {
+.contact-button {
     display: block;
     width: 100%;
     text-align: center;
     text-decoration: none;
     box-sizing: border-box;
     font-weight: 700;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     font-size: 1.3rem;
     padding: 0.6rem 2.0rem;
     border-radius: 6px;
-}
-
-.primary {
-  background: #0b4a6f;
-  color: white !important;
-  border: 1px solid #0b4a6f;
+    border: 1px solid #378096;
 }
 
 .map-card {
@@ -162,5 +149,12 @@ h1 {
   .map-card,
   .map-card iframe {
     min-height: 360px;
+  }
+
+  .contact-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
   }
 }

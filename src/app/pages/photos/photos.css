@@ -5,28 +5,30 @@
 
 .page-header {
   max-width: 760px;
-  margin-bottom: 1.5rem;
+  margin: 0 auto 1.5rem;
+  text-align: center;
 }
 
-.section-eyebrow {
+/* .section-eyebrow {
   color: #7a1020;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-weight: 800;
   font-size: 0.85rem;
   margin-bottom: 0.75rem;
-}
+} */
 
 .page-header h1 {
   font-family: Georgia, "Times New Roman", serif;
   color: #0b3554;
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
-  margin: 0 0 0.75rem;
+  margin: 0 0 0.5rem;
 }
 
 .page-header p {
   font-size: 1.1rem;
+  font-style: italic;
   color: #374151;
   margin: 0;
 }

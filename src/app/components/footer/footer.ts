@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FacebookLink } from '../facebook-link/facebook-link';
+import { SITE_INFO } from '../../shared/site-info';
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +8,6 @@ import { FacebookLink } from '../facebook-link/facebook-link';
   templateUrl: './footer.html',
   styleUrl: './footer.css',
 })
-export class Footer {}
+export class Footer {
+  siteInfo = SITE_INFO;
+}

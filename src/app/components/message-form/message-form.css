@@ -1,0 +1,114 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  z-index: 1000;
+}
+
+.message-modal {
+  position: relative;
+  background: white;
+  color: #1f2933;
+  width: min(560px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+.message-modal h2 {
+  color: #7a1020;
+  font-family: Georgia, "Times New Roman", serif;
+  margin: 0 0 1.25rem;
+}
+
+.message-modal label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.message-modal input,
+.message-modal textarea {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.65rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.message-modal fieldset {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  margin: 0 0 1rem;
+  padding: 0.85rem;
+}
+
+.message-modal legend {
+  font-weight: 700;
+}
+
+.radio-option {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 1.25rem;
+  margin-bottom: 0 !important;
+}
+
+.radio-option input {
+  width: auto;
+  margin: 0;
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-submit {
+  width: 100%;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.35rem;
+}
+
+.country-code {
+  font-weight: 700;
+  color: #374151;
+  white-space: nowrap;
+  padding-top: 0.5rem;
+}
+
+.phone-input input {
+  flex: 1;
+}
+
+.label-row {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.form-error-inline {
+  color: #9f1239;
+  font-size: 1.0rem;
+  font-weight: 700;
+}

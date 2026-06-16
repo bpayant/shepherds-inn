@@ -1,6 +1,72 @@
 .site-footer {
   background: #0b4a6f;
   color: white;
+  padding: 2rem 0;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr 1fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.footer-column {
+  text-align: center;
+}
+
+.footer-column h4 {
+  margin: 0 0 0.65rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15rem;
+  line-height: 1.2;
+}
+
+.footer-column p {
+  margin: 0.35rem 0;
+  font-size: 1.10rem;
+}
+
+.footer-column a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  text-decoration: underline;
+}
+
+.footer-nls-logo {
+  max-height: 58px;
+  width: auto;
+  display: inline-block;
+}
+
+/* .footer-address {
+  text-align: left
+} */
+
+@media (max-width: 950px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+
+
+
+
+/* .site-footer {
+  background: #0b4a6f;
+  color: white;
   padding-top: 2rem;
 }
 
@@ -63,17 +129,9 @@
   display: inline-block;
 }
 
-.footer-bottom {
-  text-align: center;
-  padding: 1rem;
-  margin-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  font-size: 0.9rem;
-}
-
 @media (max-width: 850px) {
   .footer-content {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-}
+} */

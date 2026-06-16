@@ -28,3 +28,14 @@
   font-weight: 400;
   opacity: 0.95;
 }
+
+@media (max-width: 820px) {
+  .facebook-logo {
+    width: 24px;
+    height: 24px;
+  }
+
+  .facebook-text {
+    display: none;
+  }
+}

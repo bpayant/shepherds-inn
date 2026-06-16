@@ -2,7 +2,8 @@
   <div class="container contact-grid">
     <div class="contact-info">
       <p class="section-eyebrow">Contact Shepherds Inn</p>
-      <h1>We’d love to hear from you!</h1>
+      <h1>We’d love to<br />
+        hear from you!</h1>
 
       <div class="contact-card">
         <h2>The Shepherds Inn<br />
@@ -12,28 +13,64 @@
           <strong>Address</strong><br />
           <a
             class="address-link"
-            href="https://www.google.com/maps/search/?api=1&query=46+1st+Ave+SW+Wells+MN+56097"
+            [href]="siteInfo.googleMapsUrl"
             target="_blank"
             rel="noopener noreferrer"
           >
-            46 1st Ave SW<br />
-            Wells, MN 56097
+            {{ siteInfo.addressLine1 }}<br />
+            {{ siteInfo.cityStateZip }}
           </a>
         </p>
 
         <p>
           <strong>Phone</strong><br />
-          <a href="tel:5075536271">507-553-6271</a>
+          <a 
+            class="address-link"
+            [href]="'tel:' + siteInfo.phone"
+          >
+            {{ siteInfo.phone }}
+          </a>
         </p>
 
         <p>
           <strong>Email</strong><br />
-          <span>TBD</span>
+          <a 
+            class="address-link"
+            [href]="'mailto:' + siteInfo.email"
+          >
+            {{ siteInfo.email }}
+          </a>
         </p>
 
+        <div class="contact-actions">
+          <a
+            class="button primary contact-button"
+            [href]="'mailto:' + siteInfo.email + '?subject=Tour Request'"
+          >
+            Request a Tour
+          </a>
+
+          <button
+            type="button"
+            class="button secondary contact-button"
+            (click)="showMessageForm = true"
+          >
+            Send us a Message
+          </button>
+
+          @if (showMessageForm) {
+            <app-message-form
+              formTitle="Send Us a Message"
+              defaultSubject="General Inquiry"
+              submitButtonText="Send Message"
+              (close)="showMessageForm = false">
+            </app-message-form>
+          }
+        </div>
+
         <a
-          class="button primary"
-          href="https://www.google.com/maps/dir/?api=1&destination=46%201st%20Ave%20SW%2C%20Wells%2C%20MN%2056097"
+          class="button secondary contact-button"
+          [href]="siteInfo.googleMapsDirectionsUrl"
           target="_blank"
           rel="noopener"
         >
@@ -45,7 +82,7 @@
     <div class="map-card">
       <iframe
         title="Map to Shepherds Inn Assisted Living"
-        src="https://www.google.com/maps?q=46%201st%20Ave%20SW%2C%20Wells%2C%20MN%2056097&output=embed"
+        [src]="googleMapsEmbedUrl"
         loading="lazy"
         referrerpolicy="no-referrer-when-downgrade">
       </iframe>

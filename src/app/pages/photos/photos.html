@@ -1,10 +1,9 @@
 <section class="photos-page">
   <div class="container">
     <div class="page-header">
-      <p class="section-eyebrow">Photos & Events</p>
-      <h1>Community Photos</h1>
+      <h1>Life at The Shepherds Inn</h1>
       <p>
-        A look at recent moments, celebrations, and everyday life at The Shepherds Inn.
+        Moments, memories, and community in Wells, Minnesota
       </p>
     </div>
 
@@ -26,7 +25,9 @@
         />
 
         <div class="featured-photo-info">
-          <h2>{{ selectedPhoto.event || selectedMonth.title }}</h2>
+          <!-- Uncomment to double-show month/year if no event -->
+          <!-- <h2>{{ selectedPhoto.event || selectedMonth.title }}</h2> -->
+          <h2>{{ selectedPhoto.event }}</h2>
           <p>{{ selectedMonth.title }}</p>
         </div>
       </div>
