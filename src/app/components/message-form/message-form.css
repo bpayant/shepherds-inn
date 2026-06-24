@@ -112,3 +112,34 @@
   font-size: 1.0rem;
   font-weight: 700;
 }
+
+.form-success {
+  background: #ecfdf3;
+  border: 1px solid #86efac;
+  color: #166534;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.form-submit-error {
+  background: #fff1f2;
+  border: 1px solid #fda4af;
+  color: #9f1239;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.website-field {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.modal-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}

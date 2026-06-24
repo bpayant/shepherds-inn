@@ -1,80 +1,128 @@
-<div class="modal-backdrop" (click)="closeForm()">
-  <div class="message-modal" (click)="$event.stopPropagation()">
-    <button type="button" class="modal-close" aria-label="Close message form" (click)="closeForm()">
-      ×
-    </button>
+<div class="modal-backdrop">
+  <div class="message-modal">
+    <button type="button" class="modal-close" (click)="closeForm()">×</button>
 
     <h2>{{ formTitle }}</h2>
 
-    <label>
-      <div class="label-row">
-        <span>Name</span>
-        @if (errors.name) {
-          <span class="form-error-inline">{{ errors.name }}</span>
-        }
-      </div>
-      <input type="text" [(ngModel)]="form.name" (blur)="validateName()" />
-    </label>
+    @if (successMessage) {
+      <p class="form-success">{{ successMessage }}</p>
+    }
 
-    <label>
-      <div class="label-row">
-        <span>Phone</span>
-        @if (errors.phone) {
-          <span class="form-error-inline">{{ errors.phone }}</span>
-        }
-        @if (errors.contact) {
-          <span class="form-error-inline">{{ errors.contact }}</span>
-        }
-      </div>
+    @if (submitError) {
+      <p class="form-submit-error">{{ submitError }}</p>
+    }
 
-      <div class="phone-input">
-        <span class="country-code">1-</span>
+    <form (ngSubmit)="submitForm()">
+      <label>
+        <span class="label-row">
+          Name
+          @if (errors.name) {
+            <span class="form-error-inline">{{ errors.name }}</span>
+          }
+        </span>
+
         <input
-          type="tel"
-          maxlength="14"
-          placeholder="(555) 555-5555"
-          [(ngModel)]="form.phone"
-          (blur)="formatPhoneNumber(); validatePhone()"
+          type="text"
+          name="name"
+          [(ngModel)]="form.name"
+          (blur)="validateName()"
         />
-      </div>
-    </label>
-
-    <label>
-      <div class="label-row">
-        <span>Email</span>
-        @if (errors.email) {
-          <span class="form-error-inline">{{ errors.email }}</span>
-        }
-      </div>
-      <input type="email" [(ngModel)]="form.email" (blur)="validateEmail()" />
-    </label>
-
-    <fieldset>
-      <legend>Preferred method of contact</legend>
-
-      <label class="radio-option">
-        <input type="radio" name="preferredContact" value="Call" [(ngModel)]="form.preferredContact" />
-        Call
       </label>
 
-      <label class="radio-option">
-        <input type="radio" name="preferredContact" value="Email" [(ngModel)]="form.preferredContact" />
-        Email
+      <label>
+        <span class="label-row">
+          Phone
+          @if (errors.phone) {
+            <span class="form-error-inline">{{ errors.phone }}</span>
+          }
+          @if (errors.contact) {
+            <span class="form-error-inline">{{ errors.contact }}</span>
+          }
+        </span>
+
+        <div class="phone-input">
+          <span class="country-code">1-</span>
+          <input
+            type="tel"
+            name="phone"
+            [(ngModel)]="form.phone"
+            (blur)="formatPhoneNumber(); validatePhone(); validateContactMethodProvided()"
+          />
+        </div>
       </label>
-    </fieldset>
 
-    <label>
-      <div class="label-row">
-        <span>Message</span>
-        @if (errors.message) {
-          <span class="form-error-inline">{{ errors.message }}</span>
-        }
-      </div>
-      <textarea rows="5" [(ngModel)]="form.message" (blur)="validateMessage()"></textarea>
-    </label>
+      <label>
+        <span class="label-row">
+          Email
+          @if (errors.email) {
+            <span class="form-error-inline">{{ errors.email }}</span>
+          }
+        </span>
 
-    <button type="button" class="button primary modal-submit" (click)="submitForm()">
-      {{ submitButtonText }}
-    </button>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="form.email"
+          (blur)="validateEmail(); validateContactMethodProvided()"
+        />
+      </label>
+
+      <fieldset>
+        <legend>Preferred method of contact</legend>
+
+        <label class="radio-option">
+          <input
+            type="radio"
+            name="preferredContact"
+            value="Call"
+            [(ngModel)]="form.preferredContact"
+          />
+          Call
+        </label>
+
+        <label class="radio-option">
+          <input
+            type="radio"
+            name="preferredContact"
+            value="Email"
+            [(ngModel)]="form.preferredContact"
+          />
+          Email
+        </label>
+      </fieldset>
+
+      <label>
+        <span class="label-row">
+          Message
+          @if (errors.message) {
+            <span class="form-error-inline">{{ errors.message }}</span>
+          }
+        </span>
+
+        <textarea
+          name="message"
+          rows="5"
+          [(ngModel)]="form.message"
+          (blur)="validateMessage()"
+        ></textarea>
+      </label>
+
+      <input
+        type="text"
+        name="website"
+        class="website-field"
+        [(ngModel)]="form.website"
+        tabindex="-1"
+        autocomplete="off"
+      />
+
+      <button
+        type="submit"
+        class="button primary modal-submit"
+        [disabled]="isSubmitting"
+      >
+        {{ isSubmitting ? 'Sending...' : submitButtonText }}
+      </button>
+    </form>
   </div>
 </div>
