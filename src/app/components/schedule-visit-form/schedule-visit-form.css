@@ -1,0 +1,182 @@
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.visit-modal {
+  position: relative;
+  background: white;
+  color: #1f2933;
+  width: min(700px, 100%);
+  max-height: 96vh;
+  overflow-y: auto;
+  border-radius: 14px;
+  padding: 1rem 1.5rem 1.05rem;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+}
+
+.modal-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+  border: none;
+  background: transparent;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.visit-modal h2 {
+  color: #7a1020;
+  font-family: Georgia, "Times New Roman", serif;
+  margin: 0 0 0.55rem;
+}
+
+.modal-intro {
+  margin: 0 0 0.75rem;
+  color: #555;
+}
+
+form {
+  display: grid;
+  gap: 0.65rem;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 700;
+}
+
+fieldset {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 0.55rem 0.75rem 0.65rem;
+  margin: 0;
+}
+
+legend {
+  font-weight: 700;
+  padding: 0 0.25rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-weight: 400;
+  margin-top: 0.35rem;
+}
+
+.radio-option input {
+  width: auto;
+  margin-top: 0.2rem;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+.label-row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.form-error-inline {
+  display: block;
+  color: #b42318;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-top: 0.15rem;
+}
+
+.form-success {
+  background: #ecfdf3;
+  border: 1px solid #86efac;
+  color: #166534;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.form-submit-error {
+  background: #fff1f2;
+  border: 1px solid #fda4af;
+  color: #9f1239;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.phone-input {
+  display: flex;
+  align-items: center;
+}
+
+.country-code {
+  padding: 0.55rem 0.65rem;
+  border: 1px solid #ccc;
+  border-right: 0;
+  border-radius: 6px 0 0 6px;
+  background: #f7f7f7;
+}
+
+.phone-input input {
+  border-radius: 0 6px 6px 0;
+}
+
+.website-field {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+.modal-submit {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding: 0.75rem 1rem;
+}
+
+.modal-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.thank-you-panel {
+  text-align: center;
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem 0 0.25rem;
+}
+
+.thank-you-panel h2 {
+  color: #7a1020;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.thank-you-panel p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.45;
+}

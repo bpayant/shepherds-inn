@@ -1,22 +1,18 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import { SITE_INFO } from '../../shared/site-info';
-import { ContactMessageService, ContactMessageResponse } from '../../services/contact-message';
+
+import { ScheduleVisitResponse, ScheduleVisitService } from '../../services/schedule-visit';
 import { ClientLogger } from '../../shared/logging/client-logger';
 
 @Component({
-  selector: 'app-message-form',
+  selector: 'app-schedule-visit-form',
   standalone: true,
   imports: [FormsModule],
-  templateUrl: './message-form.html',
-  styleUrl: './message-form.css'
+  templateUrl: './schedule-visit-form.html',
+  styleUrl: './schedule-visit-form.css'
 })
-export class MessageForm {
-  @Input() formTitle = 'Send us a Message';
-  @Input() defaultSubject = 'General Inquiry';
-  @Input() submitButtonText = 'Send Message';
-
+export class ScheduleVisitForm {
   @Output() close = new EventEmitter<void>();
 
   isSubmitting = false;
@@ -27,8 +23,9 @@ export class MessageForm {
     name: '',
     phone: '',
     email: '',
-    preferredContact: 'Call',
-    message: '',
+    inquiryFor: 'Myself',
+    tourReadiness: 'Yes, please call me to schedule a day/time',
+    timeline: 'Immediately',
     website: ''
   };
 
@@ -36,12 +33,13 @@ export class MessageForm {
     name: '',
     phone: '',
     email: '',
-    contact: '',
-    message: ''
+    inquiryFor: '',
+    tourReadiness: '',
+    timeline: ''
   };
 
   constructor(
-    private contactMessageService: ContactMessageService,
+    private scheduleVisitService: ScheduleVisitService,
     private changeDetectorRef: ChangeDetectorRef,
     private logger: ClientLogger
   ) {}
@@ -89,8 +87,13 @@ export class MessageForm {
 
     const digits = this.form.phone.replace(/\D/g, '');
 
-    if (digits.length !== 0 && digits.length !== 10) {
-      this.errors.phone = 'Please enter as (###) ###-####, or blank w/ "Email" as preference';
+    if (digits.length === 0) {
+      this.errors.phone = 'Please enter a valid phone number';
+      return false;
+    }
+
+    if (digits.length !== 10) {
+      this.errors.phone = 'Please enter as (###) ###-####';
       return false;
     }
 
@@ -109,67 +112,69 @@ export class MessageForm {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
     if (!emailPattern.test(email)) {
-      this.errors.email = 'Please enter as ***@***.***, or blank w/ "Call" as preference';
+      this.errors.email = 'Please enter a valid email (***@***.***)';
       return false;
     }
 
     return true;
   }
 
-  validateMessage(): boolean {
-    this.errors.message = '';
+  validateInquiryFor(): boolean {
+    this.errors.inquiryFor = '';
 
-    const minimum = SITE_INFO.minMessageLength;
-
-    if (this.form.message.trim().length < minimum) {
-      this.errors.message = `Please enter a message which is at least ${minimum} characters`;
+    if (!this.form.inquiryFor) {
+      this.errors.inquiryFor = 'Please select one';
       return false;
     }
 
     return true;
   }
 
-  validateContactMethodProvided(): boolean {
-    this.errors.contact = '';
-    this.errors.phone = '';
-    this.errors.email = '';
+  validateTourReadiness(): boolean {
+    this.errors.tourReadiness = '';
 
-    const phoneExists = this.form.phone.trim();
-    const emailExists = this.form.email.trim();
-    const phoneValid = this.validatePhone();
-    const emailValid = this.validateEmail();
-
-    if ((this.form.preferredContact === 'Call') && (!phoneExists)) {
-      this.errors.phone = 'Please enter as (###) ###-####, or blank + "Email" as preference';
-      return false;
-    }
-    if ((this.form.preferredContact === 'Email') && (!emailExists)) {
-      this.errors.email = 'Please enter as ***@***.***, or blank w/ "Call" as preference';
+    if (!this.form.tourReadiness) {
+      this.errors.tourReadiness = 'Please select one';
       return false;
     }
 
-    return phoneValid && emailValid;
+    return true;
+  }
+
+  validateTimeline(): boolean {
+    this.errors.timeline = '';
+
+    if (!this.form.timeline) {
+      this.errors.timeline = 'Please select a timeline';
+      return false;
+    }
+
+    return true;
   }
 
   validateForm(): boolean {
     const nameIsValid = this.validateName();
-    const messageIsValid = this.validateMessage();
-    const contactProvided = this.validateContactMethodProvided();
+    const phoneIsValid = this.validatePhone();
+    const emailIsValid = this.validateEmail();
+    const inquiryForIsValid = this.validateInquiryFor();
+    const tourReadinessIsValid = this.validateTourReadiness();
+    const timelineIsValid = this.validateTimeline();
 
     return (
       nameIsValid &&
-      messageIsValid &&
-      contactProvided
+      phoneIsValid &&
+      emailIsValid &&
+      inquiryForIsValid &&
+      tourReadinessIsValid &&
+      timelineIsValid
     );
   }
 
   submitForm(): void {
-    this.logger.debug('Contact form submit clicked');
     this.successMessage = '';
     this.submitError = '';
 
     if (!this.validateForm()) {
-      this.logger.debug('Contact form validation failed');
       this.changeDetectorRef.detectChanges();
       return;
     }
@@ -177,35 +182,36 @@ export class MessageForm {
     this.isSubmitting = true;
     this.changeDetectorRef.detectChanges();
 
-    const request = {
+    this.scheduleVisitService.submitRequest({
       name: this.form.name.trim(),
       phone: this.form.phone.trim(),
       email: this.form.email.trim(),
-      preferredContact: this.form.preferredContact,
-      subject: this.defaultSubject,
-      message: this.form.message.trim(),
+      inquiryFor: this.form.inquiryFor,
+      tourReadiness: this.form.tourReadiness,
+      timeline: this.form.timeline,
       website: this.form.website
-    };
-    
-    this.contactMessageService.sendMessage(request).subscribe({
-      next: (response: ContactMessageResponse) => {
+    }).subscribe({
+      next: (response: ScheduleVisitResponse) => {
+        this.logger.info('Schedule visit form submitted successfully');
 
-        this.successMessage = response.message || 'Your message has been received.';
+        this.successMessage =
+          response.message || 'Thank you. Your request has been received.';
 
         this.isSubmitting = false;
         this.changeDetectorRef.detectChanges();
       },
       error: (error: HttpErrorResponse) => {
-        this.logger.error('Contact form request failed', {
+        this.logger.error('Schedule visit form request failed', {
           status: error.status,
           message: error.message
         });
+
         if (error.status === 429) {
           this.submitError = 'Too many attempts. Please wait a few minutes and try again.';
         } else if (error.error?.title) {
           this.submitError = error.error.title;
         } else {
-          this.submitError = 'Sorry, your message could not be submitted. Please call us instead.';
+          this.submitError = 'Sorry, your request could not be submitted. Please call us instead.';
         }
 
         this.isSubmitting = false;

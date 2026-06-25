@@ -14,6 +14,7 @@ export interface ContactMessageRequest {
 }
 
 export interface ContactMessageResponse {
+  success: boolean;
   message: string;
 }
 

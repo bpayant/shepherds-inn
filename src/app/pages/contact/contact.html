@@ -43,12 +43,19 @@
         </p>
 
         <div class="contact-actions">
-          <a
+          <button
+            type="button"
             class="button primary contact-button"
-            [href]="'mailto:' + siteInfo.email + '?subject=Tour Request'"
+            (click)="showScheduleVisitForm = true"
           >
-            Request a Tour
-          </a>
+            Schedule a Visit
+          </button>
+
+          @if (showScheduleVisitForm) {
+            <app-schedule-visit-form
+              (close)="showScheduleVisitForm = false"
+            ></app-schedule-visit-form>
+          }
 
           <button
             type="button"
@@ -60,7 +67,7 @@
 
           @if (showMessageForm) {
             <app-message-form
-              formTitle="Send Us a Message"
+              formTitle="Send us a Message"
               defaultSubject="General Inquiry"
               submitButtonText="Send Message"
               (close)="showMessageForm = false">
