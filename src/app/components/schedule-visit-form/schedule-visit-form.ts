@@ -211,7 +211,7 @@ export class ScheduleVisitForm {
         } else if (error.error?.title) {
           this.submitError = error.error.title;
         } else {
-          this.submitError = 'Sorry, your request could not be submitted. Please call us instead.';
+          this.submitError = 'Sorry, unable to submit your message. Please call (507) 553-6271 instead.';
         }
 
         this.isSubmitting = false;

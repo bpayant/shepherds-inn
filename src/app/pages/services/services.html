@@ -1,7 +1,144 @@
-<div class="container page">
-  <h1>Services</h1>
+<section class="services-page">
+  <section class="services-hero">
+    <div class="services-intro">
+      <div class="services-heading-row">
+        <p class="eyebrow">Services & Amenities</p>
 
-  <p>
-    Learn more about the services and support available at Shepherds Inn.
-  </p>
-</div>
+        <button
+          type="button"
+          class="button services-top-button"
+          (click)="showMessageForm = true"
+        >
+          Get In Touch
+        </button>
+      </div>
+
+      <h1>Supportive Assisted Living in a Warm, Home-Like Setting</h1>
+
+      <p>
+        At Shepherds Inn, residents receive personalized support in a warm,
+        home-like assisted living community. Our goal is to help each resident
+        feel safe, comfortable, engaged, and cared for while maintaining as much
+        independence as possible.
+      </p>
+    </div>
+
+    <figure class="services-hero-photo">
+      <img
+        src="/images/services/spring-cookies.jpg"
+        alt="Residents enjoying cookies together at Shepherds Inn"
+      />
+    </figure>
+  </section>
+
+  <section class="service-section">
+    <div class="section-copy">
+      <h2>Daily Living</h2>
+
+      <p>
+        Everyday comfort matters. Shepherds Inn helps residents enjoy familiar
+        routines, nutritious meals, and a clean, welcoming environment.
+      </p>
+    </div>
+
+    <div class="amenity-list">
+      <div>🍽️ Home-cooked breakfast, lunch, and dinner served daily</div>
+      <div>🧺 Housekeeping and laundry support</div>
+      <div>🎲 Daily activities and social opportunities</div>
+      <div>🏡 Comfortable common areas for relaxing and visiting</div>
+      <div>🤝 Support with daily routines as needed</div>
+    </div>
+  </section>
+
+  <section class="service-section">
+    <div class="section-copy">
+      <h2>Personal Care & Health Support</h2>
+
+      <p>
+        Care at Shepherds Inn is personalized to each resident’s needs. Our team
+        works to provide attentive support while encouraging independence,
+        dignity, and comfort.
+      </p>
+    </div>
+
+    <div class="amenity-list">
+      <div>👩‍⚕️ Licensed RN nurse on staff</div>
+      <div>⏰ 24/7 on-site caregivers</div>
+      <div>📝 Customized care plans for each resident</div>
+      <div>💊 Pharmacy coordination and medication management support</div>
+      <div>❤️ Ongoing health monitoring</div>
+      <div>👨‍👩‍👧 Communication with families and healthcare providers as appropriate</div>
+    </div>
+  </section>
+
+  <section class="service-section">
+    <div class="section-copy">
+      <h2>Activities & Engagement</h2>
+
+      <p>
+        An important part of assisted living is staying connected. Shepherds Inn
+        offers opportunities for residents to participate, socialize, and enjoy
+        meaningful moments throughout the day.
+      </p>
+    </div>
+
+    <div class="amenity-list">
+      <div>🎨 Daily activities and group programs</div>
+      <div>☕ Opportunities to gather with fellow residents</div>
+      <div>🌼 Beautiful garden area for relaxing and visiting</div>
+      <div>🧩 Activities that encourage participation and engagement</div>
+      <div>😊 A welcoming environment where residents can join in at their own comfort level</div>
+    </div>
+  </section>
+
+  <section class="service-section">
+    <div class="section-copy">
+      <h2>Community & Belonging</h2>
+
+      <p>
+        Shepherds Inn is more than a place to receive care – it is a place to
+        feel at home. We strive to create a supportive community where residents
+        feel valued, included, and encouraged to live each day with purpose.
+      </p>
+    </div>
+
+    <div class="amenity-list">
+      <div>🏡 Warm, home-like setting</div>
+      <div>🌿 Peaceful indoor and outdoor gathering spaces</div>
+      <div>🤍 Supportive caregivers who know each resident personally</div>
+      <div>🌟 Encouragement of independence, dignity, and fulfillment</div>
+      <div>👥 A close-knit assisted living community in Wells, Minnesota</div>
+    </div>
+  </section>
+
+  <section class="visit-cta">
+    <h2>Visit Us & See Our Community For Yourself</h2>
+
+    <p>
+      The best way to understand Shepherds Inn is to visit, meet our team, and
+      see the community in person.
+    </p>
+
+    <button
+      type="button"
+      class="button"
+      (click)="showScheduleVisitForm = true"
+    >
+      Schedule a Visit
+    </button>
+  </section>
+</section>
+
+@if (showMessageForm) {
+  <app-message-form
+    formTitle="Get in Touch"
+    submitButtonText="Send Message"
+    (close)="showMessageForm = false"
+  ></app-message-form>
+}
+
+@if (showScheduleVisitForm) {
+  <app-schedule-visit-form
+    (close)="showScheduleVisitForm = false"
+  ></app-schedule-visit-form>
+}

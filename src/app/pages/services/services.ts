@@ -1,9 +1,16 @@
 import { Component } from '@angular/core';
 
+import { MessageForm } from '../../components/message-form/message-form';
+import { ScheduleVisitForm } from '../../components/schedule-visit-form/schedule-visit-form';
+
 @Component({
   selector: 'app-services',
-  imports: [],
+  standalone: true,
+  imports: [MessageForm, ScheduleVisitForm],
   templateUrl: './services.html',
-  styleUrl: './services.css',
+  styleUrl: './services.css'
 })
-export class Services {}
+export class Services {
+  showMessageForm = false;
+  showScheduleVisitForm = false;
+}
