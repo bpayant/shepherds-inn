@@ -144,6 +144,7 @@
   min-width: 200px;
   font-size: 1.1rem;
   padding: 0.9rem 1.5rem;
+  cursor: pointer;
 }
 
 .services-intro .button {

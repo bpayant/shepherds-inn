@@ -14,17 +14,25 @@
         -->
 
         <div class="hero-actions">
-            <a class="button primary" routerLink="/contact">
-                SCHEDULE A VISIT
-            </a>
-            
-            <a class="button secondary" routerLink="/contact">
-                CONTACT US
-            </a>
+          <button
+            type="button"
+            class="button primary"
+            (click)="showScheduleVisitForm = true"
+          >
+            SCHEDULE A VISIT
+          </button>
 
-            <a class="button secondary" routerLink="/photos">
-                RECENT EVENT PICS
-            </a>
+          <button
+            type="button"
+            class="button secondary home-hero-button"
+            (click)="showMessageForm = true"
+          >
+            CONTACT US
+          </button>
+            
+          <a class="button secondary" routerLink="/photos">
+            RECENT EVENT PICS
+          </a>
         </div>
       </div>
     </div>
@@ -111,3 +119,17 @@
     </div>
   </section>
 </main>
+
+@if (showMessageForm) {
+  <app-message-form
+    formTitle="CONTACT US"
+    submitButtonText="SEND MESSAGE"
+    (close)="showMessageForm = false"
+  ></app-message-form>
+}
+
+@if (showScheduleVisitForm) {
+  <app-schedule-visit-form
+    (close)="showScheduleVisitForm = false"
+  ></app-schedule-visit-form>
+}
