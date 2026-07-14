@@ -1,6 +1,6 @@
 export const SITE_INFO = {
   // CONTACT INFO
-  phone: '(507) 555-1234',
+  phone: '(507) 553-6271',
   email: 'eladanat@hotmail.com',
   addressLine1: '46 1st Ave SW',
   cityStateZip: 'Wells, MN 56097',
@@ -18,5 +18,5 @@ export const SITE_INFO = {
     'https://nextlevelseniorliving.com',
 
   // MESSAGE FORM
-  minMessageLength: 10
+  minMessageLength: 6
 };

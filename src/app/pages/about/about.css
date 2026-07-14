@@ -1,0 +1,176 @@
+.about-page {
+  background: #fbf8f2;
+  padding-bottom: 2rem;
+}
+
+.about-hero {
+  padding: 3.75rem 0 2.5rem;
+}
+
+.about-hero-grid,
+.about-two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.about-heading-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.eyebrow {
+  color: #7a1020;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.about-top-button {
+  flex-shrink: 0;
+}
+
+.about-intro h1,
+.about-section h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: #0b3554;
+  line-height: 1.12;
+  margin: 0 0 1rem;
+}
+
+.about-intro h1 {
+  font-size: clamp(2.1rem, 4vw, 3.35rem);
+  color: #7a1020;
+}
+
+.about-section h2 {
+  font-size: clamp(1.75rem, 3vw, 2.35rem);
+}
+
+.about-intro p,
+.about-section p {
+  color: #374151;
+  font-size: 1.08rem;
+  line-height: 1.65;
+}
+
+.about-intro p:last-child,
+.about-section p:last-child {
+  margin-bottom: 0;
+}
+
+.about-callout,
+.about-list-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 10px 24px rgba(11, 53, 84, 0.08);
+  border: 1px solid #eadfd7;
+}
+
+.about-callout {
+  border-left: 5px solid #7a1020;
+}
+
+.about-callout h2,
+.about-list-card h3 {
+  color: #7a1020;
+  font-family: Georgia, "Times New Roman", serif;
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+
+.about-section {
+  padding: 2.75rem 0;
+  border-top: 2px solid #eadfd7;
+}
+
+.about-section-soft {
+  background: #f5f8fa;
+}
+
+.about-list-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.about-list-card li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.65rem;
+  color: #1f2933;
+  font-size: 1.03rem;
+  line-height: 1.45;
+}
+
+.about-list-card li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #7a1020;
+  font-weight: 800;
+}
+
+.about-list-card li:last-child {
+  margin-bottom: 0;
+}
+
+.about-card-link {
+  display: inline-flex;
+  margin-top: 1.2rem;
+  color: #7a1020;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.about-card-link:hover {
+  text-decoration: underline;
+}
+
+.leadership-card {
+  background: #fffaf3;
+}
+
+@media (max-width: 850px) {
+  .about-hero-grid,
+  .about-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero {
+    padding-top: 2.25rem;
+  }
+
+  .about-section {
+    padding: 2.25rem 0;
+  }
+}
+
+.next-level-logo {
+  display: block;
+  width: min(100%, 360px);
+  max-height: 70px;
+  object-fit: contain;
+  object-position: left center;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 600px) {
+  .about-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .about-top-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -90,6 +90,79 @@
     </div>
   </section>
 
+  <section class="section reviews-section">
+    <div class="container">
+      <div class="section-eyebrow">Reviews</div>
+
+      <h2>What Families Say</h2>
+
+      <p class="reviews-intro">
+        Families appreciate the warm, home-like environment and caring support at Shepherds Inn in Wells, Minnesota.
+      </p>
+
+      <div class="review-grid">
+        @if (currentReview; as review) {
+          <div class="review-carousel" aria-live="polite">
+            <button
+              type="button"
+              class="review-arrow previous"
+              (click)="previousReview()"
+              aria-label="Show previous review"
+            >
+              ◀
+            </button>
+
+            <article class="review-card featured-review">
+              <div
+                class="review-stars"
+                [attr.aria-label]="review.rating + ' out of 5 stars'"
+              >
+                {{ getReviewStars(review.rating) }}
+              </div>
+
+              <p class="review-quote">
+                “{{ review.quote }}”
+              </p>
+
+              <footer>
+                – {{ review.attribution }}
+
+                @if (review.source || review.year) {
+                  <span>
+                    @if (review.source) {
+                      {{ review.source }}
+                    }
+
+                    @if (review.source && review.year) {
+                      ·
+                    }
+
+                    @if (review.year) {
+                      {{ review.year }}
+                    }
+                  </span>
+                }
+              </footer>
+
+              <div class="review-counter">
+                {{ currentReviewNumber }} of {{ reviews.length }}
+              </div>
+            </article>
+
+            <button
+              type="button"
+              class="review-arrow next"
+              (click)="nextReview()"
+              aria-label="Show next review"
+            >
+              ▶
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
   <section class="section section-soft" id="photos">
     <div class="container">
       <div class="section-eyebrow">Photos</div>

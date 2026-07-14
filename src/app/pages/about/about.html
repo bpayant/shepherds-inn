@@ -1,8 +1,147 @@
-<div class="container page">
-  <h1>About Shepherds Inn</h1>
+<main class="about-page">
+  <section class="about-hero">
+    <div class="container about-hero-grid">
+      <div class="about-intro">
+        <div class="about-heading-row">
+          <p class="eyebrow">About Shepherds Inn</p>
 
-  <p>
-    Shepherds Inn has served Wells, Minnesota and the surrounding communities
-    since 1987.
-  </p>
-</div>
+          <button
+            type="button"
+            class="button page-top-button about-top-button"
+            (click)="showMessageForm = true"
+          >
+            Get in Touch
+          </button>
+        </div>
+
+        <h1>A close-knit assisted living community rooted in Wells, Minnesota.</h1>
+
+        <p>
+          Shepherds Inn is a close-knit assisted living community rooted in the
+          same neighborly spirit that has shaped Wells and the surrounding
+          farming community for generations.
+        </p>
+
+        <p>
+          Here, residents can enjoy a smaller, more personal setting within the
+          broader Wells community – a place where familiar faces, shared meals,
+          daily routines, and local connections are part of everyday life.
+        </p>
+      </div>
+
+      <aside class="about-callout">
+        <h2>Local roots. Personal setting.</h2>
+        <p>
+          In a town like Wells, it is not uncommon to meet someone whose family
+          member, friend, neighbor, or loved one has been part of Shepherds Inn
+          over the years.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="container about-two-column">
+      <div class="section-copy">
+        <h2>Rooted in the Wells Community</h2>
+
+        <p>
+          Shepherds Inn traces its beginnings to 1987, when it started as a
+          senior outreach program through Covenant Life Church. Since then,
+          Shepherds Inn has continued to serve Wells and the surrounding area as
+          a local option for seniors who want support close at hand without
+          losing the familiarity of the community they know.
+        </p>
+      </div>
+
+      <div class="about-list-card">
+        <h3>What makes Shepherds Inn feel different?</h3>
+
+        <ul>
+          <li>A smaller, more personal assisted living setting</li>
+          <li>Longstanding ties to Wells and the surrounding area</li>
+          <li>Shared meals, daily activities, and familiar routines</li>
+          <li>Comfortable spaces for visiting, relaxing, and gathering</li>
+        </ul>
+
+        <a class="about-card-link" routerLink="/services">
+          Explore Services & Amenities
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section about-section-soft">
+  <div class="container about-two-column">
+    <div class="section-copy">
+      <h2>Local Care, Experienced Leadership</h2>
+
+      <p>
+        Shepherds Inn is managed by Next Level Senior Living, a senior living
+        operator built around a simple belief: great care starts with genuine
+        relationships.
+      </p>
+
+      <p>
+        Their team brings experience in assisted living, memory care, respite
+        care, and senior living operations, while staying focused on the daily
+        details that matter most to residents and families – familiar
+        caregivers, responsive communication, steady leadership, and a
+        community where people feel known.
+      </p>
+    </div>
+
+    <div class="about-list-card leadership-card">
+      <img
+        class="next-level-logo"
+        src="/images/next-level-logo.webp"
+        alt="Next Level Senior Living"
+      />
+
+      <h3>Next Level’s focus</h3>
+
+      <ul>
+        <li>Residents who are known personally</li>
+        <li>Families who feel informed and heard</li>
+        <li>Caregivers who are supported in their work</li>
+        <li>Leadership that is present and accountable</li>
+        <li>Operations rooted in compassion, consistency, and respect</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+  <section class="page-cta-card visit-cta">
+    <div class="container">
+      <h2>Visit Shepherds Inn & See the Community for Yourself</h2>
+
+      <p>
+        The best way to understand Shepherds Inn is to visit, meet our team, and
+        talk with us about assisted living, respite stays, short-term support,
+        or availability for a loved one.
+      </p>
+
+      <button
+        type="button"
+        class="button cta-light-button about-cta-button"
+        (click)="showScheduleVisitForm = true"
+      >
+        Schedule a Visit
+      </button>
+    </div>
+  </section>
+</main>
+
+@if (showMessageForm) {
+  <app-message-form
+    formTitle="Get in Touch"
+    submitButtonText="Send Message"
+    (close)="showMessageForm = false"
+  ></app-message-form>
+}
+
+@if (showScheduleVisitForm) {
+  <app-schedule-visit-form
+    (close)="showScheduleVisitForm = false"
+  ></app-schedule-visit-form>
+}

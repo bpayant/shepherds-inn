@@ -205,7 +205,7 @@ export class MessageForm {
         } else if (error.error?.title) {
           this.submitError = error.error.title;
         } else {
-          this.submitError = 'Sorry, unable to submit your message. Please call (507) 553-6271 instead.';
+          this.submitError = `Sorry, unable to submit your message. Please call ${SITE_INFO.phone} instead.`;
         }
 
         this.isSubmitting = false;

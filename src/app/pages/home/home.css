@@ -171,20 +171,116 @@ button.button {
   cursor: pointer;
 }
 
-/*
-.home-hero-button {
+
+/* Reviews */
+
+.reviews-section {
+  background: #fbf8f2;
+}
+
+.reviews-intro {
+  max-width: 720px;
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+}
+
+.review-carousel {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 850px) 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.featured-review {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.review-arrow {
   appearance: none;
-  font: inherit;
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  border: none;
+  background: transparent;
+  color: #0b4a6f;
+  font-family: inherit;
+  font-size: 2.4rem;
   line-height: 1;
-  min-width: 190px;
-  padding: 0.9rem 1.35rem;
+  padding: 0.25rem;
   cursor: pointer;
 }
-*/
+
+.review-arrow:hover {
+  color: #7a1020;
+}
+
+.review-counter {
+  color: #5f6b75;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 0.75rem;
+}
+
+.review-card {
+  background: white;
+  border-radius: 14px;
+  padding: 1.35rem 1.5rem;
+  border-left: 5px solid #0b4a6f;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.review-stars {
+  color: #7a1020;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.65rem;
+}
+
+.review-quote {
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: #1f2933;
+}
+
+.review-card footer {
+  color: #0b4a6f;
+  font-weight: 700;
+}
+
+.review-card footer span {
+  display: block;
+  color: #5f6b75;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 800px) {
+  .review-carousel {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .featured-review {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .review-arrow.previous {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: end;
+  }
+
+  .review-arrow.next {
+    grid-column: 2;
+    grid-row: 2;
+    justify-self: start;
+  }
+}
+
 
 /* Responsive */
 

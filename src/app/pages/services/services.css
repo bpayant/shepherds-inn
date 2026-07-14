@@ -1,7 +1,20 @@
 .services-page {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 3rem 1rem 4rem;
+  background: #fbf8f2;
+  width: 100%;
+  padding: 3rem 0 2rem;
+}
+
+.services-hero,
+.service-section {
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.services-hero,
+.service-section {
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .services-heading-row {
@@ -16,13 +29,8 @@
   margin: 0;
 }
 
-.services-top-button {
-  flex-shrink: 0;
-  white-space: nowrap;
-  padding-inline: 1.15rem;
-}
-
 .services-hero {
+  background: #fbf8f2;
   display: grid;
   grid-template-columns: minmax(0, 1fr) 430px;
   gap: 2rem;
@@ -61,8 +69,7 @@
 }
 
 .services-intro p,
-.section-copy p,
-.visit-cta p {
+.section-copy p {
   color: #374151;
   font-size: 1.05rem;
   line-height: 1.65;
@@ -83,10 +90,11 @@
 }
 
 .service-section {
+  
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 1.25rem;
-  padding: 1.6rem 0;
+  padding: 2.5rem 0;
   border-top: 2px solid #eadfd7;
 }
 
@@ -116,64 +124,6 @@
   box-shadow: none;
 }
 
-.visit-cta {
-  text-align: center;
-  background: #7a1020;
-  color: white;
-  border-radius: 18px;
-  padding: 1.45rem 1.25rem;
-  margin-top: 1.75rem;
-}
-
-.visit-cta h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.65rem, 3vw, 2.25rem);
-  margin: 0 0 0.5rem;
-}
-
-.visit-cta p {
-  color: white;
-  max-width: 1050px;
-  margin: 0 auto 0.9rem;
-  font-size: 1.02rem;
-  line-height: 1.4;
-}
-
-.services-top-button,
-.visit-cta .button {
-  min-width: 200px;
-  font-size: 1.1rem;
-  padding: 0.9rem 1.5rem;
-  cursor: pointer;
-}
-
-.services-intro .button {
-  margin-top: 0.5rem;
-  background: #0b4a6f;
-  color: white;
-  border: 1px solid #0b4a6f;
-  box-shadow: 0 4px 12px rgba(11, 74, 111, 0.22);
-}
-
-.visit-cta .button {
-  background: white;
-  color: #7a1020;
-  border: 1px solid black;
-}
-
-.services-intro .button:hover {
-  background: #700613;
-  color: white;
-  border: 1px solid white;
-  box-shadow: 0 4px 12px rgba(133, 47, 47, 0.288);
-}
-
-.visit-cta .button:hover {
-  background: #0b4a6f;
-  color: white;
-  border: 1px solid white;
-}
-
 @media (max-width: 800px) {
   .services-page {
     padding-top: 2rem;
@@ -183,11 +133,11 @@
     align-items: flex-start;
     flex-direction: column;
     gap: 0.75rem;
-}
+  }
 
-.services-top-button {
-    width: 100%;
-}
+  .services-top-button {
+      width: 100%;
+  }
 
   .services-hero,
   .service-section {

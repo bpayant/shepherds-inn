@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-
+import { SITE_INFO } from '../../shared/site-info';
 import { ScheduleVisitResponse, ScheduleVisitService } from '../../services/schedule-visit';
 import { ClientLogger } from '../../shared/logging/client-logger';
 
@@ -211,7 +211,7 @@ export class ScheduleVisitForm {
         } else if (error.error?.title) {
           this.submitError = error.error.title;
         } else {
-          this.submitError = 'Sorry, unable to submit your message. Please call (507) 553-6271 instead.';
+          this.submitError = `Sorry, unable to submit your message. Please call ${SITE_INFO.phone} instead.`;
         }
 
         this.isSubmitting = false;
