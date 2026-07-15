@@ -1,143 +1,177 @@
-<div class="modal-backdrop">
-  <div class="message-modal">
-    <button type="button" class="modal-close" (click)="closeForm()">×</button>
+<dialog
+  #dialog
+  class="message-modal"
+  aria-modal="true"
+  aria-labelledby="message-dialog-title"
+  (close)="onDialogClosed()"
+>
+  <button
+    type="button"
+    class="modal-close"
+    aria-label="Close message form"
+    (click)="closeForm()"
+  >
+    &times;
+  </button>
 
-    @if (successMessage) {
-      <div class="thank-you-panel">
-        <h2>Thank you</h2>
+  @if (successMessage) {
+    <div class="thank-you-panel" role="status" aria-live="polite">
+      <h2 id="message-dialog-title">Thank you</h2>
 
-        <p>{{ successMessage }}</p>
+      <p>{{ successMessage }}</p>
 
-        <button
-          type="button"
-          class="button primary modal-submit"
-          (click)="closeForm()"
-        >
-          Close
-        </button>
-      </div>
+      <button
+        type="button"
+        class="button primary modal-submit"
+        (click)="closeForm()"
+      >
+        Close
+      </button>
+    </div>
+  }
+  @else {
+    <h2 id="message-dialog-title">{{ formTitle }}</h2>
+
+    @if (submitError) {
+      <p class="form-submit-error" role="alert" aria-live="assertive">
+        {{ submitError }}
+      </p>
     }
-    @else {
-      <h2>{{ formTitle }}</h2>
 
-      @if (submitError) {
-        <p class="form-submit-error">{{ submitError }}</p>
-      }
-
-      <form (ngSubmit)="submitForm()">
-        <label>
-          <span class="label-row">
-            Name
-            @if (errors.name) {
-              <span class="form-error-inline">{{ errors.name }}</span>
-            }
-          </span>
-
-          <input
-            type="text"
-            name="name"
-            [(ngModel)]="form.name"
-            (blur)="validateName()"
-          />
-        </label>
-
-        <label>
-          <span class="label-row">
-            Phone
-            @if (errors.phone) {
-              <span class="form-error-inline">{{ errors.phone }}</span>
-            }
-            @if (errors.contact) {
-              <span class="form-error-inline">{{ errors.contact }}</span>
-            }
-          </span>
-
-          <div class="phone-input">
-            <span class="country-code">1-</span>
-            <input
-              type="tel"
-              name="phone"
-              [(ngModel)]="form.phone"
-              (blur)="formatPhoneNumber(); validateContactMethodProvided()"
-            />
-          </div>
-        </label>
-
-        <label>
-          <span class="label-row">
-            Email
-            @if (errors.email) {
-              <span class="form-error-inline">{{ errors.email }}</span>
-            }
-          </span>
-
-          <input
-            type="email"
-            name="email"
-            [(ngModel)]="form.email"
-            (blur)="validateContactMethodProvided()"
-          />
-        </label>
-
-        <fieldset>
-          <legend>Preferred method of contact</legend>
-
-          <label class="radio-option">
-            <input
-              type="radio"
-              name="preferredContact"
-              value="Call"
-              [(ngModel)]="form.preferredContact"
-              (change)="validateContactMethodProvided()"
-            />
-            Call
-          </label>
-
-          <label class="radio-option">
-            <input
-              type="radio"
-              name="preferredContact"
-              value="Email"
-              [(ngModel)]="form.preferredContact"
-              (change)="validateContactMethodProvided()"
-            />
-            Email
-          </label>
-        </fieldset>
-
-        <label>
-          <span class="label-row">
-            Message
-            @if (errors.message) {
-              <span class="form-error-inline">{{ errors.message }}</span>
-            }
-          </span>
-
-          <textarea
-            name="message"
-            rows="5"
-            [(ngModel)]="form.message"
-            (blur)="validateMessage()"
-          ></textarea>
-        </label>
+    <form (ngSubmit)="submitForm()" [attr.aria-busy]="isSubmitting">
+      <label>
+        <span class="label-row">
+          Name
+          @if (errors.name) {
+            <span id="message-name-error" class="form-error-inline">
+              {{ errors.name }}
+            </span>
+          }
+        </span>
 
         <input
+          #initialFocus
           type="text"
-          name="website"
-          class="website-field"
-          [(ngModel)]="form.website"
-          tabindex="-1"
-          autocomplete="off"
+          name="name"
+          [(ngModel)]="form.name"
+          [attr.aria-invalid]="errors.name ? 'true' : null"
+          [attr.aria-describedby]="errors.name ? 'message-name-error' : null"
+          (blur)="validateName()"
         />
+      </label>
 
-        <button
-          type="submit"
-          class="button primary modal-submit"
-          [disabled]="isSubmitting"
-        >
-          {{ isSubmitting ? 'Sending...' : submitButtonText }}
-        </button>
-      </form>
-    }
-  </div>
-</div>
+      <label>
+        <span class="label-row">
+          Phone
+          @if (errors.phone || errors.contact) {
+            <span id="message-phone-error" class="form-error-inline">
+              {{ errors.phone || errors.contact }}
+            </span>
+          }
+        </span>
+
+        <div class="phone-input">
+          <span class="country-code" aria-hidden="true">1-</span>
+          <input
+            type="tel"
+            name="phone"
+            [(ngModel)]="form.phone"
+            [attr.aria-invalid]="errors.phone || errors.contact ? 'true' : null"
+            [attr.aria-describedby]="errors.phone || errors.contact ? 'message-phone-error' : null"
+            (blur)="formatPhoneNumber(); validateContactMethodProvided()"
+          />
+        </div>
+      </label>
+
+      <label>
+        <span class="label-row">
+          Email
+          @if (errors.email) {
+            <span id="message-email-error" class="form-error-inline">
+              {{ errors.email }}
+            </span>
+          }
+        </span>
+
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="form.email"
+          [attr.aria-invalid]="errors.email ? 'true' : null"
+          [attr.aria-describedby]="errors.email ? 'message-email-error' : null"
+          (blur)="validateContactMethodProvided()"
+        />
+      </label>
+
+      <fieldset>
+        <legend>Preferred method of contact</legend>
+
+        <label class="radio-option">
+          <input
+            type="radio"
+            name="preferredContact"
+            value="Call"
+            [(ngModel)]="form.preferredContact"
+            (change)="validateContactMethodProvided()"
+          />
+          Call
+        </label>
+
+        <label class="radio-option">
+          <input
+            type="radio"
+            name="preferredContact"
+            value="Email"
+            [(ngModel)]="form.preferredContact"
+            (change)="validateContactMethodProvided()"
+          />
+          Email
+        </label>
+      </fieldset>
+
+      <label>
+        <span class="label-row">
+          Message
+          @if (errors.message) {
+            <span id="message-text-error" class="form-error-inline">
+              {{ errors.message }}
+            </span>
+          }
+        </span>
+
+        <textarea
+          name="message"
+          rows="5"
+          [(ngModel)]="form.message"
+          [attr.aria-invalid]="errors.message ? 'true' : null"
+          [attr.aria-describedby]="errors.message ? 'message-text-error' : null"
+          (blur)="validateMessage()"
+        ></textarea>
+      </label>
+
+      <input
+        type="text"
+        name="website"
+        class="website-field"
+        aria-hidden="true"
+        [(ngModel)]="form.website"
+        tabindex="-1"
+        autocomplete="off"
+      />
+
+      @if (isSubmitting) {
+        <span class="visually-hidden" role="status" aria-live="polite">
+          Sending message
+        </span>
+      }
+
+      <button
+        type="submit"
+        class="button primary modal-submit"
+        [disabled]="isSubmitting"
+      >
+        {{ isSubmitting ? 'Sending...' : submitButtonText }}
+      </button>
+    </form>
+  }
+</dialog>

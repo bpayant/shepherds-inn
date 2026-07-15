@@ -1,24 +1,20 @@
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
+.message-modal::backdrop {
   background: rgba(0, 0, 0, 0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.25rem;
-  z-index: 1000;
 }
 
 .message-modal {
   position: relative;
   background: white;
   color: #1f2933;
-  width: min(650px, 100%);
+  width: min(650px, calc(100% - 2.5rem));
   max-height: 90vh;
   overflow-y: auto;
+  margin: auto;
+  border: 0;
   border-radius: 14px;
   padding: 1.5rem;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.28);
+  box-sizing: border-box;
 }
 
 .message-modal h2 {
@@ -77,6 +73,11 @@
   font-size: 2rem;
   line-height: 1;
   cursor: pointer;
+}
+
+.modal-close:focus-visible {
+  outline: 3px solid #0b4a6f;
+  outline-offset: 3px;
 }
 
 .modal-submit {

@@ -1,4 +1,13 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SITE_INFO } from '../../shared/site-info';
@@ -12,7 +21,10 @@ import { ClientLogger } from '../../shared/logging/client-logger';
   templateUrl: './message-form.html',
   styleUrl: './message-form.css'
 })
-export class MessageForm {
+export class MessageForm implements AfterViewInit {
+  @ViewChild('dialog') private dialog?: ElementRef<HTMLDialogElement>;
+  @ViewChild('initialFocus') private initialFocus?: ElementRef<HTMLInputElement>;
+
   @Input() formTitle = 'Send us a Message';
   @Input() defaultSubject = 'General Inquiry';
   @Input() submitButtonText = 'Send Message';
@@ -40,14 +52,60 @@ export class MessageForm {
     message: ''
   };
 
+  private previouslyFocusedElement: HTMLElement | null = null;
+  private closeEmitted = false;
+
   constructor(
     private contactMessageService: ContactMessageService,
     private changeDetectorRef: ChangeDetectorRef,
     private logger: ClientLogger
   ) {}
 
+  ngAfterViewInit(): void {
+    const dialog = this.dialog?.nativeElement;
+
+    if (!dialog) {
+      return;
+    }
+
+    this.previouslyFocusedElement =
+      dialog.ownerDocument.activeElement as HTMLElement | null;
+
+    if (typeof dialog.showModal === 'function') {
+      dialog.showModal();
+    }
+
+    this.initialFocus?.nativeElement.focus();
+  }
+
   closeForm(): void {
+    const dialog = this.dialog?.nativeElement;
+
+    if (dialog?.open && typeof dialog.close === 'function') {
+      dialog.close();
+      return;
+    }
+
+    this.finishClose();
+  }
+
+  onDialogClosed(): void {
+    this.finishClose();
+  }
+
+  private finishClose(): void {
+    if (this.closeEmitted) {
+      return;
+    }
+
+    this.closeEmitted = true;
     this.close.emit();
+
+    queueMicrotask(() => {
+      if (this.previouslyFocusedElement?.isConnected) {
+        this.previouslyFocusedElement.focus();
+      }
+    });
   }
 
   formatPhoneNumber(): void {

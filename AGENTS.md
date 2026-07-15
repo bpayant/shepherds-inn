@@ -184,3 +184,13 @@ Avoid:
 - unnecessarily complex layouts
 
 When suggesting UI improvements, prioritize usability over visual novelty.
+
+---
+
+## Code review
+
+When completing a task:
+
+- Mention anything you considered changing but intentionally left unchanged.
+- Mention any tradeoffs in the chosen solution.
+- Highlight any assumptions made during implementation.

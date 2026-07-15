@@ -1,4 +1,12 @@
-import { ChangeDetectorRef, Component, EventEmitter, Output } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Output,
+  ViewChild
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { SITE_INFO } from '../../shared/site-info';
@@ -12,7 +20,10 @@ import { ClientLogger } from '../../shared/logging/client-logger';
   templateUrl: './schedule-visit-form.html',
   styleUrl: './schedule-visit-form.css'
 })
-export class ScheduleVisitForm {
+export class ScheduleVisitForm implements AfterViewInit {
+  @ViewChild('dialog') private dialog?: ElementRef<HTMLDialogElement>;
+  @ViewChild('initialFocus') private initialFocus?: ElementRef<HTMLInputElement>;
+
   @Output() close = new EventEmitter<void>();
 
   isSubmitting = false;
@@ -38,14 +49,60 @@ export class ScheduleVisitForm {
     timeline: ''
   };
 
+  private previouslyFocusedElement: HTMLElement | null = null;
+  private closeEmitted = false;
+
   constructor(
     private scheduleVisitService: ScheduleVisitService,
     private changeDetectorRef: ChangeDetectorRef,
     private logger: ClientLogger
   ) {}
 
+  ngAfterViewInit(): void {
+    const dialog = this.dialog?.nativeElement;
+
+    if (!dialog) {
+      return;
+    }
+
+    this.previouslyFocusedElement =
+      dialog.ownerDocument.activeElement as HTMLElement | null;
+
+    if (typeof dialog.showModal === 'function') {
+      dialog.showModal();
+    }
+
+    this.initialFocus?.nativeElement.focus();
+  }
+
   closeForm(): void {
+    const dialog = this.dialog?.nativeElement;
+
+    if (dialog?.open && typeof dialog.close === 'function') {
+      dialog.close();
+      return;
+    }
+
+    this.finishClose();
+  }
+
+  onDialogClosed(): void {
+    this.finishClose();
+  }
+
+  private finishClose(): void {
+    if (this.closeEmitted) {
+      return;
+    }
+
+    this.closeEmitted = true;
     this.close.emit();
+
+    queueMicrotask(() => {
+      if (this.previouslyFocusedElement?.isConnected) {
+        this.previouslyFocusedElement.focus();
+      }
+    });
   }
 
   formatPhoneNumber(): void {
