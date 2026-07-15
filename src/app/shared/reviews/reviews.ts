@@ -38,7 +38,7 @@ export const REVIEWS: Review[] = [
     id: 3,
     quote: "My mother is getting excellent care here. The staff is so caring. The food is very good. My mom has dementia, and " +
     "they are working with that and helping her cope and function to the best of her ability, She seems happy!",
-    attribution: 'R*** V***',
+    attribution: 'R.V.',
     rating: 5,
     source: 'Google',
     year: '2023'
@@ -46,7 +46,7 @@ export const REVIEWS: Review[] = [
   {
     id: 4,
     quote: "Calm, very nice, retirement facility. Happy residents. Helpful, caring staff.",
-    attribution: 'K*** S***',
+    attribution: 'K.S.',
     rating: 5,
     source: 'Google',
     year: '2023'
@@ -54,7 +54,7 @@ export const REVIEWS: Review[] = [
   {
     id: 5,
     quote: "",
-    attribution: 'F*** J***',
+    attribution: 'F.J.',
     rating: 5,
     source: 'Google',
     year: '2022'
