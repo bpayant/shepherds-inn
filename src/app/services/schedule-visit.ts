@@ -9,8 +9,8 @@ export interface ScheduleVisitRequest {
   phone: string;
   email: string;
   inquiryFor: string;
-  tourReadiness: string;
   timeline: string;
+  preferredDates: string[];
   website: string;
 }
 

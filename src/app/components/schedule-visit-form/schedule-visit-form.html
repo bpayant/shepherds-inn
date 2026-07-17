@@ -20,21 +20,12 @@
 
       <p>{{ successMessage }}</p>
 
-      <button
-        type="button"
-        class="button primary modal-submit"
-        (click)="closeForm()"
-      >
-        Close
-      </button>
+      <button type="button" class="button primary modal-submit" (click)="closeForm()">Close</button>
     </div>
-  }
-  @else {
+  } @else {
     <h2 id="visit-dialog-title">Schedule a Visit</h2>
 
-    <p class="modal-intro">
-      We'd love for you to come visit us!
-    </p>
+    <p class="modal-intro">We'd love for you to come visit us!</p>
 
     @if (submitError) {
       <p class="form-submit-error" role="alert" aria-live="assertive">
@@ -43,196 +34,284 @@
     }
 
     <form (ngSubmit)="submitForm()" [attr.aria-busy]="isSubmitting">
-      <label>
-        <span class="label-row">
-          Name
-          @if (errors.name) {
-            <span id="visit-name-error" class="form-error-inline">
-              {{ errors.name }}
-            </span>
-          }
-        </span>
+      <div class="contact-fields">
+        <label>
+          <span class="label-row">
+            Name
+            @if (errors.name) {
+              <span id="visit-name-error" class="form-error-inline">
+                {{ errors.name }}
+              </span>
+            }
+          </span>
 
-        <input
-          #initialFocus
-          type="text"
-          name="name"
-          [(ngModel)]="form.name"
-          [attr.aria-invalid]="errors.name ? 'true' : null"
-          [attr.aria-describedby]="errors.name ? 'visit-name-error' : null"
-          (blur)="validateName()"
-        />
-      </label>
-
-      <label>
-        <span class="label-row">
-          Phone Number
-          @if (errors.phone) {
-            <span id="visit-phone-error" class="form-error-inline">
-              {{ errors.phone }}
-            </span>
-          }
-        </span>
-
-        <div class="phone-input">
-          <span class="country-code" aria-hidden="true">1-</span>
           <input
-            type="tel"
-            name="phone"
-            [(ngModel)]="form.phone"
-            [attr.aria-invalid]="errors.phone ? 'true' : null"
-            [attr.aria-describedby]="errors.phone ? 'visit-phone-error' : null"
-            (blur)="formatPhoneNumber(); validatePhone()"
+            #initialFocus
+            type="text"
+            name="name"
+            [(ngModel)]="form.name"
+            [attr.aria-invalid]="errors.name ? 'true' : null"
+            [attr.aria-describedby]="errors.name ? 'visit-name-error' : null"
+            (blur)="validateName()"
           />
+        </label>
+
+        <label>
+          <span class="label-row">
+            Phone Number
+            @if (errors.phone) {
+              <span id="visit-phone-error" class="form-error-inline">
+                {{ errors.phone }}
+              </span>
+            }
+          </span>
+
+          <div class="phone-input">
+            <span class="country-code" aria-hidden="true">1-</span>
+            <input
+              type="tel"
+              name="phone"
+              [(ngModel)]="form.phone"
+              [attr.aria-invalid]="errors.phone ? 'true' : null"
+              [attr.aria-describedby]="errors.phone ? 'visit-phone-error' : null"
+              (blur)="formatPhoneNumber(); validatePhone()"
+            />
+          </div>
+        </label>
+
+        <label>
+          <span class="label-row">
+            Email
+            @if (errors.email) {
+              <span id="visit-email-error" class="form-error-inline">
+                {{ errors.email }}
+              </span>
+            }
+          </span>
+
+          <input
+            type="email"
+            name="email"
+            [(ngModel)]="form.email"
+            [attr.aria-invalid]="errors.email ? 'true' : null"
+            [attr.aria-describedby]="errors.email ? 'visit-email-error' : null"
+            (blur)="validateEmail()"
+          />
+        </label>
+      </div>
+
+      <fieldset
+        class="preferred-dates-fieldset"
+        [attr.aria-invalid]="errors.preferredDates ? 'true' : null"
+        [attr.aria-describedby]="
+          errors.preferredDates ? 'visit-dates-help visit-dates-error' : 'visit-dates-help'
+        "
+      >
+        <legend>Preferred Visit Dates (select up to {{ maxPreferredDates }})</legend>
+
+        <p id="visit-dates-help" class="field-help">
+          We'll contact you shortly to confirm a tour date and time.
+        </p>
+
+        @if (errors.preferredDates) {
+          <span id="visit-dates-error" class="form-error-inline">
+            {{ errors.preferredDates }}
+          </span>
+        }
+
+        <div class="preferred-date-layout">
+          <div class="calendar" aria-label="Preferred visit date calendar">
+            <div class="calendar-header">
+              <button
+                type="button"
+                class="calendar-nav-button"
+                aria-label="Show previous month"
+                [disabled]="!canShowPreviousMonth"
+                (click)="showPreviousMonth()"
+              >
+                &lsaquo;
+              </button>
+
+              <h3 id="calendar-month-label" aria-live="polite">
+                {{ displayedMonthLabel }}
+              </h3>
+
+              <button
+                type="button"
+                class="calendar-nav-button"
+                aria-label="Show next month"
+                (click)="showNextMonth()"
+              >
+                &rsaquo;
+              </button>
+            </div>
+
+            <div class="calendar-weekdays" aria-hidden="true">
+              @for (weekday of weekdayLabels; track weekday) {
+                <span>{{ weekday }}</span>
+              }
+            </div>
+
+            <div
+              class="calendar-days"
+              role="group"
+              aria-labelledby="calendar-month-label"
+              aria-describedby="visit-dates-help"
+            >
+              @for (day of calendarDays; track $index) {
+                @if (day) {
+                  <button
+                    #calendarDayButton
+                    type="button"
+                    class="calendar-day"
+                    [class.selected]="isDateSelected(day.dateValue)"
+                    [attr.data-date]="day.dateValue"
+                    [attr.aria-label]="formatPreferredDate(day.dateValue)"
+                    [attr.aria-pressed]="isDateSelected(day.dateValue)"
+                    [attr.aria-disabled]="isDateUnavailableAtLimit(day)"
+                    [attr.tabindex]="focusedCalendarDate === day.dateValue ? 0 : -1"
+                    [disabled]="isDateDisabled(day)"
+                    (click)="togglePreferredDate(day.dateValue)"
+                    (keydown)="onCalendarDayKeydown($event, day.dateValue)"
+                  >
+                    {{ day.dayNumber }}
+                  </button>
+                } @else {
+                  <span class="calendar-day-placeholder" aria-hidden="true"></span>
+                }
+              }
+            </div>
+          </div>
+
+          <section class="selected-dates" aria-labelledby="selected-dates-title">
+            <h3 id="selected-dates-title">
+              Selected dates ({{ preferredDates.length }}/{{ maxPreferredDates }})
+            </h3>
+
+            @if (preferredDates.length === 0) {
+              <p class="no-dates-selected">No dates selected yet.</p>
+            } @else {
+              <ul class="selected-date-list">
+                @for (date of preferredDates; track date) {
+                  <li>
+                    <span>{{ formatPreferredDate(date) }}</span>
+                    <button
+                      type="button"
+                      class="date-chip-remove"
+                      [attr.aria-label]="'Remove ' + formatPreferredDate(date)"
+                      (click)="removePreferredDate(date, true)"
+                    >
+                      &times;
+                    </button>
+                  </li>
+                }
+              </ul>
+            }
+          </section>
         </div>
-      </label>
 
-      <label>
-        <span class="label-row">
-          Email
-          @if (errors.email) {
-            <span id="visit-email-error" class="form-error-inline">
-              {{ errors.email }}
+        <span class="visually-hidden" role="status" aria-live="polite">
+          {{ calendarAnnouncement }}
+        </span>
+      </fieldset>
+
+      <div class="final-options-grid">
+        <fieldset
+          [attr.aria-invalid]="errors.inquiryFor ? 'true' : null"
+          [attr.aria-describedby]="errors.inquiryFor ? 'visit-inquiry-error' : null"
+        >
+          <legend>Are you inquiring for yourself or someone you know?</legend>
+
+          @if (errors.inquiryFor) {
+            <span id="visit-inquiry-error" class="form-error-inline">
+              {{ errors.inquiryFor }}
             </span>
           }
-        </span>
 
-        <input
-          type="email"
-          name="email"
-          [(ngModel)]="form.email"
-          [attr.aria-invalid]="errors.email ? 'true' : null"
-          [attr.aria-describedby]="errors.email ? 'visit-email-error' : null"
-          (blur)="validateEmail()"
-        />
-      </label>
+          <div class="radio-options two-options">
+            <label class="radio-option">
+              <input
+                type="radio"
+                name="inquiryFor"
+                value="Myself"
+                [(ngModel)]="form.inquiryFor"
+                (change)="validateInquiryFor()"
+              />
+              Myself
+            </label>
 
-      <fieldset
-        [attr.aria-invalid]="errors.inquiryFor ? 'true' : null"
-        [attr.aria-describedby]="errors.inquiryFor ? 'visit-inquiry-error' : null"
-      >
-        <legend>Are you inquiring for yourself or someone you know?</legend>
+            <label class="radio-option">
+              <input
+                type="radio"
+                name="inquiryFor"
+                value="A loved one"
+                [(ngModel)]="form.inquiryFor"
+                (change)="validateInquiryFor()"
+              />
+              A loved one
+            </label>
+          </div>
+        </fieldset>
 
-        @if (errors.inquiryFor) {
-          <span id="visit-inquiry-error" class="form-error-inline">
-            {{ errors.inquiryFor }}
-          </span>
-        }
+        <fieldset
+          [attr.aria-invalid]="errors.timeline ? 'true' : null"
+          [attr.aria-describedby]="errors.timeline ? 'visit-timeline-error' : null"
+        >
+          <legend>What is the ideal move-in timeline?</legend>
 
-        <label class="radio-option">
-          <input
-            type="radio"
-            name="inquiryFor"
-            value="Myself"
-            [(ngModel)]="form.inquiryFor"
-            (change)="validateInquiryFor()"
-          />
-          Myself
-        </label>
+          @if (errors.timeline) {
+            <span id="visit-timeline-error" class="form-error-inline">
+              {{ errors.timeline }}
+            </span>
+          }
 
-        <label class="radio-option">
-          <input
-            type="radio"
-            name="inquiryFor"
-            value="A loved one"
-            [(ngModel)]="form.inquiryFor"
-            (change)="validateInquiryFor()"
-          />
-          A loved one
-        </label>
-      </fieldset>
+          <div class="radio-options timeline-options">
+            <label class="radio-option">
+              <input
+                type="radio"
+                name="timeline"
+                value="Immediately"
+                [(ngModel)]="form.timeline"
+                (change)="validateTimeline()"
+              />
+              Immediately
+            </label>
 
-      <fieldset
-        [attr.aria-invalid]="errors.tourReadiness ? 'true' : null"
-        [attr.aria-describedby]="errors.tourReadiness ? 'visit-readiness-error' : null"
-      >
-        <legend>Are you ready to tour the community?</legend>
+            <label class="radio-option">
+              <input
+                type="radio"
+                name="timeline"
+                value="1-2 Months"
+                [(ngModel)]="form.timeline"
+                (change)="validateTimeline()"
+              />
+              1-2 Months
+            </label>
 
-        @if (errors.tourReadiness) {
-          <span id="visit-readiness-error" class="form-error-inline">
-            {{ errors.tourReadiness }}
-          </span>
-        }
+            <label class="radio-option">
+              <input
+                type="radio"
+                name="timeline"
+                value="3+ Months"
+                [(ngModel)]="form.timeline"
+                (change)="validateTimeline()"
+              />
+              3+ Months
+            </label>
 
-        <label class="radio-option">
-          <input
-            type="radio"
-            name="tourReadiness"
-            value="Yes, please call me to schedule a day/time"
-            [(ngModel)]="form.tourReadiness"
-            (change)="validateTourReadiness()"
-          />
-          Yes, please call me to schedule a day/time
-        </label>
-
-        <label class="radio-option">
-          <input
-            type="radio"
-            name="tourReadiness"
-            value="Not yet, I'd just like to get more information"
-            [(ngModel)]="form.tourReadiness"
-            (change)="validateTourReadiness()"
-          />
-          Not yet, I'd just like to get more information
-        </label>
-      </fieldset>
-
-      <fieldset
-        [attr.aria-invalid]="errors.timeline ? 'true' : null"
-        [attr.aria-describedby]="errors.timeline ? 'visit-timeline-error' : null"
-      >
-        <legend>What is the ideal timeline?</legend>
-
-        @if (errors.timeline) {
-          <span id="visit-timeline-error" class="form-error-inline">
-            {{ errors.timeline }}
-          </span>
-        }
-
-        <label class="radio-option">
-          <input
-            type="radio"
-            name="timeline"
-            value="Immediately"
-            [(ngModel)]="form.timeline"
-            (change)="validateTimeline()"
-          />
-          Immediately
-        </label>
-
-        <label class="radio-option">
-          <input
-            type="radio"
-            name="timeline"
-            value="1-2 Months"
-            [(ngModel)]="form.timeline"
-            (change)="validateTimeline()"
-          />
-          1-2 Months
-        </label>
-
-        <label class="radio-option">
-          <input
-            type="radio"
-            name="timeline"
-            value="3+ Months"
-            [(ngModel)]="form.timeline"
-            (change)="validateTimeline()"
-          />
-          3+ Months
-        </label>
-
-        <label class="radio-option">
-          <input
-            type="radio"
-            name="timeline"
-            value="Just Researching"
-            [(ngModel)]="form.timeline"
-            (change)="validateTimeline()"
-          />
-          Just Researching
-        </label>
-      </fieldset>
+            <label class="radio-option">
+              <input
+                type="radio"
+                name="timeline"
+                value="Just Researching"
+                [(ngModel)]="form.timeline"
+                (change)="validateTimeline()"
+              />
+              Just Researching
+            </label>
+          </div>
+        </fieldset>
+      </div>
 
       <input
         type="text"
@@ -250,11 +329,7 @@
         </span>
       }
 
-      <button
-        type="submit"
-        class="button primary modal-submit"
-        [disabled]="isSubmitting"
-      >
+      <button type="submit" class="button primary modal-submit" [disabled]="isSubmitting">
         {{ isSubmitting ? 'Sending...' : 'Submit Request' }}
       </button>
     </form>
