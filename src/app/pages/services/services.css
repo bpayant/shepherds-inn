@@ -1,5 +1,5 @@
 .services-page {
-  background: #fbf8f2;
+  background: var(--color-background-main);
   width: 100%;
   padding: 3rem 0 2rem;
 }
@@ -30,7 +30,7 @@
 }
 
 .services-hero {
-  background: #fbf8f2;
+  background: var(--color-background-main);
   display: grid;
   grid-template-columns: minmax(0, 1fr) 430px;
   gap: 2rem;
@@ -52,16 +52,8 @@
   object-fit: cover;
 }
 
-.eyebrow {
-  color: #7a1020;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin: 0 0 0.5rem;
-}
-
 .services-intro h1 {
-  color: #7a1020;
+  color: var(--color-title-primary);
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
@@ -70,7 +62,7 @@
 
 .services-intro p,
 .section-copy p {
-  color: #374151;
+  color: var(--color-text-muted);
   font-size: 1.05rem;
   line-height: 1.65;
 }
@@ -95,11 +87,11 @@
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 1.25rem;
   padding: 2.5rem 0;
-  border-top: 2px solid #eadfd7;
+  border-top: 2px solid var(--color-divider);
 }
 
 .section-copy h2 {
-  color: #0b4a6f;
+  color: var(--color-title-secondary);
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.8rem;
   margin: 0 0 0.6rem;
@@ -118,7 +110,7 @@
   border: none;
   border-radius: 0;
   padding: 0.15rem 0;
-  color: #1f2933;
+  color: var(--color-text);
   font-size: 1.05rem;
   line-height: 1.35;
   box-shadow: none;

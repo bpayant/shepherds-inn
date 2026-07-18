@@ -4,26 +4,31 @@ import { About } from './pages/about/about';
 import { Services } from './pages/services/services';
 import { Photos } from './pages/photos/photos';
 import { Contact } from './pages/contact/contact';
+import { AboutOperator } from './pages/about-operator/about-operator';
 
 export const routes: Routes = [
   {
     path: '',
-    component: Home
+    component: Home,
   },
   {
     path: 'about',
-    component: About
+    component: About,
+  },
+  {
+    path: 'about-operator',
+    component: AboutOperator,
   },
   {
     path: 'services',
-    component: Services
+    component: Services,
   },
   {
     path: 'photos',
-    component: Photos
+    component: Photos,
   },
   {
     path: 'contact',
-    component: Contact
-  }
+    component: Contact,
+  },
 ];
