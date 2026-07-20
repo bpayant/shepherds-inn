@@ -1,0 +1,20 @@
+<section class="page-cta-card" [attr.aria-labelledby]="titleId">
+  <h2 [id]="titleId">{{ title }}</h2>
+  <p>{{ text }}</p>
+
+  <div class="cta-actions">
+    <button type="button" class="button cta-light-button" (click)="primaryAction.emit()">
+      {{ primaryButtonText }}
+    </button>
+
+    @if (secondaryButtonText) {
+      <button
+        type="button"
+        class="button cta-secondary-button"
+        (click)="secondaryAction.emit()"
+      >
+        {{ secondaryButtonText }}
+      </button>
+    }
+  </div>
+</section>

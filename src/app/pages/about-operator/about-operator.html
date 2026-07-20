@@ -48,7 +48,7 @@
 
       <figure class="community-photo">
         <img
-          src="/images/about/cards-with-residents.jpg"
+          src="/images/about/cards-with-residents-crop1.jpg"
           alt="Shepherds Inn residents and local young people playing cards together"
         />
       </figure>
@@ -91,85 +91,104 @@
     </div>
   </section>
 
-  <section class="operator-section">
-    <div class="container split-layout support-layout">
-      <div class="section-copy">
+  <section class="operator-section next-level-section">
+    <div class="container">
+      <div class="next-level-intro">
         <h2>Supported by Next Level Senior Living</h2>
         <p>
           Shepherds Inn is supported by Next Level Senior Living, a Midwest-based senior living
           company dedicated to helping locally rooted communities thrive without losing the personal
           relationships that make them special.
         </p>
-        <p>
-          Rather than operating from a distant corporate office, Next Level partners closely with
-          community leadership by providing operational expertise, clinical support, leadership
-          development, marketing, financial oversight, and proven systems that allow local teams to
-          focus on what matters most&mdash;caring for residents and supporting families.
-        </p>
-        <p>
-          At Shepherds Inn, that means combining the trusted reputation and community roots built
-          over decades with the resources, experience, and continuous-improvement philosophy of Next
-          Level Senior Living.
-        </p>
+
+        <div class="support-layout">
+          <div class="supporting-copy">
+            <p>
+              Rather than operating from a distant corporate office, Next Level partners closely
+              with community leadership by providing operational expertise, clinical support,
+              leadership development, marketing, financial oversight, and proven systems that allow
+              local teams to focus on what matters most&mdash;caring for residents and supporting
+              families.
+            </p>
+            <p>
+              At Shepherds Inn, that means combining the trusted reputation and community roots built
+              over decades with the resources, experience, and continuous-improvement philosophy of
+              Next Level Senior Living.
+            </p>
+          </div>
+
+          <a
+            class="next-level-logo-card"
+            [href]="siteInfo.nextLevelUrl"
+            target="_blank"
+            rel="noopener"
+            aria-label="Visit the Next Level Senior Living website (opens in a new tab)"
+          >
+            <img src="/images/next-level-logo.webp" alt="Next Level Senior Living" />
+          </a>
+        </div>
       </div>
 
-      <div class="next-level-logo-card">
-        <img src="/images/next-level-logo.webp" alt="Next Level Senior Living" />
-      </div>
-    </div>
-  </section>
-
-  <section class="difference-section">
-    <div class="container">
       <div class="difference-intro">
-        <h2>The Next Level Difference</h2>
+        <h3>The Next Level Difference</h3>
         <p>
           At Next Level Senior Living, we believe exceptional senior living is built on four simple
           principles:
         </p>
       </div>
 
-      <div class="principle-grid">
-        <article class="principle-card">
-          <h3><span aria-hidden="true">&#10084;&#65039;</span> Residents Come First</h3>
-          <p>
-            Every decision begins with what&rsquo;s best for the people who call our communities
-            home.
-          </p>
-        </article>
+      <div class="difference-layout">
+        <div class="principle-grid">
+          <article class="principle-card">
+            <h4><span aria-hidden="true">&#10084;&#65039;</span> Residents Come First</h4>
+            <p>
+              Every decision begins with what&rsquo;s best for the people who call our communities
+              home.
+            </p>
+          </article>
 
-        <article class="principle-card">
-          <h3><span aria-hidden="true">&#129309;</span> Relationships Matter</h3>
-          <p>
-            We believe residents, families, and employees deserve to be known personally, not
-            treated like numbers.
-          </p>
-        </article>
+          <article class="principle-card">
+            <h4><span aria-hidden="true">&#129309;</span> Relationships Matter</h4>
+            <p>
+              We believe residents, families, and employees deserve to be known personally, not
+              treated like numbers.
+            </p>
+          </article>
 
-        <article class="principle-card">
-          <h3><span aria-hidden="true">&#127968;</span> Local Leadership Wins</h3>
-          <p>
-            Great communities are built by empowered leaders who know their residents, their
-            employees, and their hometown.
-          </p>
-        </article>
+          <article class="principle-card">
+            <h4><span aria-hidden="true">&#127968;</span> Local Leadership Wins</h4>
+            <p>
+              Great communities are built by empowered leaders who know their residents, their
+              employees, and their hometown.
+            </p>
+          </article>
 
-        <article class="principle-card">
-          <h3><span aria-hidden="true">&#128200;</span> Strong Systems Support Great Care</h3>
+          <article class="principle-card">
+            <h4><span aria-hidden="true">&#128200;</span> Strong Systems Support Great Care</h4>
+            <p>
+              Behind every exceptional community are reliable processes, accountability, and
+              continuous improvement that allow caregivers to spend more time caring for people.
+            </p>
+          </article>
+        </div>
+
+        <aside class="difference-closing">
+          <h4>The Next Level goal is simple:</h4>
           <p>
-            Behind every exceptional community are reliable processes, accountability, and
-            continuous improvement that allow caregivers to spend more time caring for people.
+            Preserve everything that makes Shepherds Inn special while continually investing in the
+            people, leadership, and systems that help our residents, families, and employees thrive.
           </p>
-        </article>
+        </aside>
       </div>
-
-      <p class="difference-closing">
-        The Next Level goal is simple: preserve everything that makes Shepherds Inn special while
-        continually investing in the people, leadership, and systems that help our residents,
-        families, and employees thrive.
-      </p>
     </div>
   </section>
+
+  <app-page-cta
+    title="Come Experience the Shepherds Inn Difference for Yourself"
+    text="Meet our team, explore the community, and see how personal assisted living can feel."
+    primaryButtonText="Schedule a Visit"
+    (primaryAction)="showScheduleVisitForm = true"
+  ></app-page-cta>
 </main>
 
 @if (showMessageForm) {
@@ -178,4 +197,10 @@
     submitButtonText="Send Message"
     (close)="showMessageForm = false"
   ></app-message-form>
+}
+
+@if (showScheduleVisitForm) {
+  <app-schedule-visit-form
+    (close)="showScheduleVisitForm = false"
+  ></app-schedule-visit-form>
 }
