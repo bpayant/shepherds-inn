@@ -1,10 +1,8 @@
 <section class="photos-page">
   <div class="container">
     <div class="page-header">
-      <h1>Life at The Shepherds Inn</h1>
-      <p>
-        Moments, memories, and community in Wells, Minnesota
-      </p>
+      <h1 class="page-title">Life at The Shepherds Inn</h1>
+      <p class="section-intro">Moments, memories, and community in Wells, Minnesota</p>
     </div>
 
     <div class="gallery-layout">
@@ -18,37 +16,23 @@
       </button>
 
       <div class="featured-photo-card">
-        <img
-          [src]="selectedPhoto.src"
-          [alt]="selectedPhoto.alt"
-          class="featured-photo"
-        />
+        <img [src]="selectedPhoto.src" [alt]="selectedPhoto.alt" class="featured-photo" />
 
         <div class="featured-photo-info">
           <!-- Uncomment to double-show month/year if no event -->
           <!-- <h2>{{ selectedPhoto.event || selectedMonth.title }}</h2> -->
-          <h2>{{ selectedPhoto.event }}</h2>
-          <p>{{ selectedMonth.title }}</p>
+          <h2 class="section-title">{{ selectedPhoto.event }}</h2>
+          <p class="text-muted">{{ selectedMonth.title }}</p>
         </div>
       </div>
 
-      <button
-        type="button"
-        class="photo-arrow"
-        aria-label="Next photo"
-        (click)="nextPhoto()"
-      >
+      <button type="button" class="photo-arrow" aria-label="Next photo" (click)="nextPhoto()">
         ▶
       </button>
     </div>
 
     <div class="month-nav">
-      <button
-        type="button"
-        class="month-link"
-        [disabled]="!newerMonth"
-        (click)="showNewerMonth()"
-      >
+      <button type="button" class="month-link" [disabled]="!newerMonth" (click)="showNewerMonth()">
         @if (newerMonth) {
           ◀ {{ newerMonth.title }}
         }
@@ -56,12 +40,7 @@
 
       <h2>{{ selectedMonth.title }}</h2>
 
-      <button
-        type="button"
-        class="month-link"
-        [disabled]="!olderMonth"
-        (click)="showOlderMonth()"
-      >
+      <button type="button" class="month-link" [disabled]="!olderMonth" (click)="showOlderMonth()">
         @if (olderMonth) {
           {{ olderMonth.title }} ▶
         }
@@ -84,6 +63,7 @@
             type="button"
             class="thumbnail-button"
             [class.active]="photo.src === selectedPhoto.src"
+            [attr.aria-pressed]="photo.src === selectedPhoto.src"
             (click)="selectPhoto(photo)"
           >
             <img [src]="photo.src" [alt]="photo.alt" />

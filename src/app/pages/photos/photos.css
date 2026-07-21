@@ -1,5 +1,5 @@
 .photos-page {
-  background: #fbf8f2;
+  background: var(--color-page-background);
   padding: 3rem 0 4rem;
 }
 
@@ -9,27 +9,15 @@
   text-align: center;
 }
 
-/* .section-eyebrow {
-  color: #7a1020;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-weight: 800;
-  font-size: 0.85rem;
-  margin-bottom: 0.75rem;
-} */
-
-.page-header h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #0b3554;
-  font-size: clamp(2rem, 4vw, 3rem);
+.page-header .page-title {
   line-height: 1.1;
   margin: 0 0 0.5rem;
 }
 
-.page-header p {
+.page-header .section-intro {
+  max-width: none;
   font-size: 1.1rem;
   font-style: italic;
-  color: #374151;
   margin: 0;
 }
 
@@ -43,17 +31,17 @@
 }
 
 .featured-photo-card {
-  background: white;
-  border-radius: 14px;
+  background: var(--color-surface);
+  border-radius: var(--radius-large);
   overflow: hidden;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-medium);
 }
 
 .featured-photo {
   width: 100%;
   height: min(62vh, 620px);
   object-fit: contain;
-  background: #111;
+  background: var(--color-surface-dark);
   display: block;
 }
 
@@ -62,30 +50,28 @@
   text-align: center;
 }
 
-.featured-photo-info h2 {
-  color: #7a1020;
-  font-family: Georgia, "Times New Roman", serif;
+.featured-photo-info .section-title {
   font-size: 1.75rem;
   line-height: 1.15;
   margin: 0 0 0.25rem;
 }
 
 .featured-photo-info p {
-  color: #4b5563;
   margin: 0;
 }
 
 .photo-arrow {
   border: none;
   background: transparent;
-  color: #0b3554;
+  color: var(--color-primary);
   font-size: 3rem;
   cursor: pointer;
   line-height: 1;
+  transition: color var(--transition-standard);
 }
 
 .photo-arrow:hover {
-  color: #7a1020;
+  color: var(--color-contrast-accent-hover);
 }
 
 .month-nav {
@@ -98,8 +84,6 @@
 }
 
 .month-nav h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #0b3554;
   font-size: 2rem;
   margin: 0;
   text-align: center;
@@ -108,9 +92,14 @@
 .month-link {
   border: none;
   background: transparent;
-  color: #0b4a6f;
+  color: var(--color-link);
   font-weight: 800;
   cursor: pointer;
+  transition: color var(--transition-standard);
+}
+
+.month-link:hover:not(:disabled) {
+  color: var(--color-link-hover);
 }
 
 .month-link:first-child {
@@ -139,13 +128,14 @@
   height: 80px;
   border: none;
   background: transparent;
-  color: #0b3554;
+  color: var(--color-primary);
   font-size: 1.8rem;
   cursor: pointer;
+  transition: color var(--transition-standard);
 }
 
 .thumbnail-scroll-button:hover {
-  color: #7a1020;
+  color: var(--color-contrast-accent-hover);
 }
 
 .thumbnail-strip {
@@ -161,23 +151,31 @@
 }
 
 .thumbnail-strip::-webkit-scrollbar-thumb {
-  background: rgba(11, 74, 111, 0.35);
-  border-radius: 999px;
+  background: var(--color-border-strong);
+  border-radius: var(--radius-pill);
 }
 
 .thumbnail-button {
   flex: 0 0 120px;
   border: 3px solid transparent;
-  background: white;
-  border-radius: 10px;
+  background: var(--color-surface);
+  border-radius: var(--radius-medium);
   overflow: hidden;
   cursor: pointer;
   padding: 0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.10);
+  box-shadow: var(--shadow-small);
+  transition:
+    border-color var(--transition-standard),
+    box-shadow var(--transition-standard);
+}
+
+.thumbnail-button:hover {
+  border-color: var(--color-border-strong);
+  box-shadow: var(--shadow-medium);
 }
 
 .thumbnail-button.active {
-  border-color: #7a1020;
+  border-color: var(--color-contrast-accent);
 }
 
 .thumbnail-button img {
@@ -192,7 +190,7 @@
   padding: 0.45rem;
   font-size: 0.78rem;
   font-weight: 700;
-  color: #0b3554;
+  color: var(--color-heading);
   line-height: 1.15;
 }
 

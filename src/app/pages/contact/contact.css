@@ -1,6 +1,6 @@
 .contact-page {
   padding: 3rem 0;
-  background: #fbf8f2;
+  background: var(--color-page-background);
   min-height: calc(100vh - 90px);
 }
 
@@ -11,23 +11,6 @@
   align-items: stretch;
 }
 
-.section-eyebrow {
-  color: #0b4a6f;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 800;
-  font-size: 0.85rem;
-  margin-bottom: 0.5rem;
-}
-
-h1 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #0b3554;
-  font-size: 3.0rem;
-  line-height: 1.1;
-  margin: 0 0 1.25rem;
-}
-
 .contact-info {
   display: flex;
   flex-direction: column;
@@ -35,28 +18,23 @@ h1 {
 
 .contact-card,
 .map-card {
-  background: white;
-  border-radius: 14px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.1);
+  background: var(--color-surface);
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
 }
 
 .contact-card {
-  padding: 1.0rem;
+  padding: var(--space-4);
   flex: 1;
 }
 
-.contact-info h1 {
-  font-size: 3.0rem;
+.contact-info .page-title {
   line-height: 1.05;
-  color: #222;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-5);
 }
 
-.contact-card h2 {
-  color: #7a1020;
+.contact-card .section-title {
   font-size: 2.5rem;
-  margin-top: 0;
-  margin-bottom: 0.75rem;
   line-height: 1.15;
 }
 
@@ -72,13 +50,14 @@ h1 {
 .contact-card .address-link {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #2a82b4de;
+  color: var(--color-link);
   text-decoration: none;
+  transition: color var(--transition-standard);
 }
 
 .contact-card .address-link:hover {
   text-decoration: underline;
-  color: #0b4a6f;
+  color: var(--color-link-hover);
 }
 
 .contact-button {
@@ -90,26 +69,9 @@ h1 {
   min-height: 46px;
   padding: 0.65rem 2rem;
   margin-top: 0.5rem;
-    
-  font-family: inherit;
+
   font-size: 1.3rem;
-  font-weight: 700;
   line-height: 1.1;
-  letter-spacing: normal;
-
-  text-align: center;
-  text-decoration: none;
-  box-sizing: border-box;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.contact-button:hover {
-    border: 1px solid black;
-}
-
-button.contact-button {
-    appearance: none;
 }
 
 .map-card {
@@ -135,7 +97,7 @@ button.contact-button {
     min-height: auto;
   }
 
-  .contact-info h1 {
+  .contact-info .page-title {
     font-size: 2.4rem;
     line-height: 1.1;
   }
@@ -144,7 +106,7 @@ button.contact-button {
     padding: 1.25rem;
   }
 
-  .contact-card h2 {
+  .contact-card .section-title {
     font-size: 1.8rem;
   }
 
@@ -152,15 +114,8 @@ button.contact-button {
     font-size: 1.1rem;
   }
 
-  .contact-card a[href^="tel"] {
+  .contact-card a[href^='tel'] {
     font-size: 1.25rem;
-  }
-
-  .button {
-    display: block;
-    width: 100%;
-    text-align: center;
-    box-sizing: border-box;
   }
 
   .map-card,
