@@ -4,6 +4,10 @@
   padding: 3rem 0 2rem;
 }
 
+.services-page .page-eyebrow {
+  color: var(--color-contrast-accent);
+}
+
 .services-hero,
 .service-section {
   max-width: 1440px;
@@ -40,9 +44,9 @@
 
 .services-hero-photo {
   margin: 0;
-  border-radius: 18px;
+  border-radius: var(--radius-large);
   overflow: hidden;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-medium);
 }
 
 .services-hero-photo img {
@@ -67,26 +71,22 @@
   line-height: 1.65;
 }
 
-.intro-action-card {
-  background: #fff7ed;
-  border: 1px solid #f1d6bf;
-  border-radius: 16px;
-  padding: 1.5rem;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
-}
-
-.intro-action-card h2 {
-  color: #7a1020;
-  font-family: Georgia, 'Times New Roman', serif;
-  margin: 0 0 0.5rem;
-}
-
 .service-section {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 1.25rem;
-  padding: 2.5rem 0;
-  border-top: 2px solid var(--color-border);
+  padding: 2.5rem 1rem;
+  border-top: 2px solid var(--color-contrast-accent-soft);
+}
+
+.service-section-warm {
+  background: var(--color-section-warm);
+  border-radius: var(--radius-large);
+}
+
+.service-section-cool {
+  background: var(--color-section-cool);
+  border-radius: var(--radius-large);
 }
 
 .section-copy h2 {
@@ -95,6 +95,12 @@
   font-size: 1.8rem;
   margin: 0 0 0.6rem;
 }
+
+.service-section-warm .section-copy h2,
+.service-section-cool .section-copy h2 {
+  color: var(--color-contrast-accent-hover);
+}
+
 .section-copy p {
   margin: 0;
 }
@@ -141,6 +147,6 @@
 
   .service-section {
     gap: 0.8rem;
-    padding: 1.25rem 0;
+    padding: 1.25rem 1rem;
   }
 }

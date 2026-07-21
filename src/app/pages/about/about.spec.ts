@@ -140,14 +140,20 @@ describe('About', () => {
     expect(fixture.nativeElement.querySelector('app-schedule-visit-form')).toBeTruthy();
   });
 
-  it('should visibly retain the unconfirmed content', () => {
-    const pageText = fixture.nativeElement.textContent;
-    const photoPlaceholder = fixture.nativeElement.querySelector('.director-photo-placeholder');
+  it('should render finalized director content without development placeholders', () => {
+    const directorSection = fixture.nativeElement.querySelector('.director-layout') as HTMLElement;
+    const directorPhoto = directorSection.querySelector('.director-photo img') as HTMLImageElement;
 
-    expect(pageText).toContain('XX years');
-    expect(pageText).toContain('Operator input needed:');
-    expect(pageText).toContain('Outside of work');
-    expect(photoPlaceholder.getAttribute('role')).toBe('img');
-    expect(photoPlaceholder.getAttribute('aria-label')).toContain('Temporary placeholder');
+    expect(directorSection.textContent).toContain('Meet Our Executive Director, Heather Tilghman');
+    expect(directorPhoto.getAttribute('src')).toBe('/images/about/heather.jpg');
+    expect(directorPhoto.getAttribute('alt')).toBe(
+      'Heather Tilghman, Executive Director of Shepherds Inn',
+    );
+    expect(directorSection.querySelector('.director-quote')).toBeNull();
+    expect(directorSection.textContent).not.toContain('XX years');
+    expect(directorSection.textContent).not.toContain('Operator input needed:');
+    expect(directorSection.textContent).not.toContain('Outside of work');
+    expect(directorSection.querySelector('.director-photo-placeholder')).toBeNull();
+    expect(directorSection.querySelector('.content-placeholder')).toBeNull();
   });
 });

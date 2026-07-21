@@ -19,4 +19,11 @@ describe('Footer', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should use the transparent reverse logo on the dark footer', () => {
+    const logo = fixture.nativeElement.querySelector('.footer-brand-logo') as HTMLImageElement;
+
+    expect(logo.getAttribute('src')).toBe('/images/shepherds-inn-logo-reverse.svg');
+    expect(logo.getAttribute('alt')).toBe('Shepherds Inn Assisted Living');
+  });
 });

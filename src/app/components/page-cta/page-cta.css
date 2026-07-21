@@ -13,20 +13,26 @@
   border-color: var(--color-on-primary);
   background: transparent;
   color: var(--color-on-primary);
+  box-shadow: var(--shadow-button);
 }
 
 .cta-secondary-button:hover:not(:disabled) {
   background: var(--color-on-primary-hover);
   color: var(--color-on-primary);
+  box-shadow: var(--shadow-button-hover);
+  transform: translateY(-1px);
 }
 
 .cta-secondary-button:active:not(:disabled) {
-  transform: translateY(1px);
+  transform: translateY(2px);
+  box-shadow: var(--shadow-button-active);
 }
 
 .cta-secondary-button:disabled {
   opacity: 0.65;
   cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 .cta-secondary-button:focus-visible {

@@ -10,11 +10,22 @@
 
     <div class="mobile-nav-row">
       <nav class="main-nav" aria-label="Main navigation">
-        <a routerLink="/">Home</a>
-        <a routerLink="/about">About</a>
-        <a routerLink="/services">Services</a>
-        <a routerLink="/photos">Photos</a>
-        <a routerLink="/contact">Contact</a>
+        <a
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ariaCurrentWhenActive="page"
+        >
+          Home
+        </a>
+        <a routerLink="/about" routerLinkActive="active" ariaCurrentWhenActive="page">About</a>
+        <a routerLink="/services" routerLinkActive="active" ariaCurrentWhenActive="page">
+          Services
+        </a>
+        <a routerLink="/photos" routerLinkActive="active" ariaCurrentWhenActive="page">Photos</a>
+        <a routerLink="/contact" routerLinkActive="active" ariaCurrentWhenActive="page">
+          Contact
+        </a>
       </nav>
 
       <app-facebook-link></app-facebook-link>
