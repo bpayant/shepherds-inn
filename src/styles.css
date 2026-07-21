@@ -14,8 +14,6 @@
   --color-brand-light-blue: #78a0b6;
   --color-brand-blue-strong: #315f79;
   --color-brand-blue-pale: #eef5f8;
-  --color-current: 7196aa;
-  --color-updated: #73a8c5ab;
   --color-brand-teal: #397d83;
   --color-brand-teal-dark: #2d676c;
   --color-brand-teal-soft: #ddedef;
@@ -441,11 +439,12 @@ a:hover {
 
 .page-cta p,
 .page-cta-card p {
-  max-width: var(--layout-readable-max);
+  width: min(80%, 900px);
+  max-width: none;
   margin: 0 auto var(--space-4);
   color: var(--color-on-contrast-accent);
-  font-size: 1.02rem;
-  line-height: 1.45;
+  font-size: clamp(1.05rem, 1.4vw, 1.125rem);
+  line-height: 1.55;
 }
 
 .page-cta .button,
@@ -458,16 +457,31 @@ a:hover {
 
 .page-cta .button-light,
 .page-cta-card .button-light {
-  border-color: var(--color-white);
+  border: 2px solid var(--color-on-contrast-accent);
   background: var(--color-section-warm);
-  color: var(--color-primary-hover);
+  color: var(--color-primary);
+  box-shadow: var(--shadow-button);
 }
 
 .page-cta .button-light:hover:not(:disabled),
 .page-cta-card .button-light:hover:not(:disabled) {
-  border-color: var(--color-white);
+  border-color: var(--color-on-contrast-accent);
   background: var(--color-white);
   color: var(--color-contrast-accent-hover);
+}
+
+@media (max-width: 800px) {
+  .page-cta p,
+  .page-cta-card p {
+    width: min(90%, 900px);
+  }
+}
+
+@media (max-width: 600px) {
+  .page-cta p,
+  .page-cta-card p {
+    width: 100%;
+  }
 }
 
 /* Shared modal and form presentation */

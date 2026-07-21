@@ -1,24 +1,11 @@
 .services-page {
   background: var(--color-page-background);
   width: 100%;
-  padding: 3rem 0 2rem;
+  padding: 0 0 2rem;
 }
 
 .services-page .page-eyebrow {
   color: var(--color-contrast-accent);
-}
-
-.services-hero,
-.service-section {
-  max-width: 1440px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.services-hero,
-.service-section {
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .services-heading-row {
@@ -34,12 +21,12 @@
 }
 
 .services-hero {
-  background: var(--color-page-background);
   display: grid;
   grid-template-columns: minmax(0, 1fr) 430px;
   gap: 2rem;
   align-items: center;
-  margin-bottom: 1.75rem;
+  padding: 3rem max(1rem, calc((100% - 1440px) / 2)) 1.75rem;
+  background: var(--color-section-warm);
 }
 
 .services-hero-photo {
@@ -71,22 +58,27 @@
   line-height: 1.65;
 }
 
+.services-group {
+  background: var(--color-surface);
+}
+
+.services-group__content {
+  display: grid;
+  width: min(1440px, calc(100% - 2rem));
+  margin-inline: auto;
+  padding: 2.5rem 1rem;
+  border-block: 1px solid var(--color-border);
+  row-gap: clamp(2.75rem, 4vw, 4rem);
+}
+
 .service-section {
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-  gap: 1.25rem;
-  padding: 2.5rem 1rem;
-  border-top: 2px solid var(--color-contrast-accent-soft);
-}
-
-.service-section-warm {
-  background: var(--color-section-warm);
-  border-radius: var(--radius-large);
-}
-
-.service-section-cool {
-  background: var(--color-section-cool);
-  border-radius: var(--radius-large);
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  column-gap: 2.75rem;
+  row-gap: 1.25rem;
+  width: 100%;
+  padding-left: clamp(1rem, 2vw, 1.5rem);
+  border-left: 5px solid var(--color-contrast-accent);
 }
 
 .section-copy h2 {
@@ -94,11 +86,6 @@
   font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.8rem;
   margin: 0 0 0.6rem;
-}
-
-.service-section-warm .section-copy h2,
-.service-section-cool .section-copy h2 {
-  color: var(--color-contrast-accent-hover);
 }
 
 .section-copy p {
@@ -122,7 +109,7 @@
 }
 
 @media (max-width: 800px) {
-  .services-page {
+  .services-hero {
     padding-top: 2rem;
   }
 
@@ -146,7 +133,13 @@
   }
 
   .service-section {
-    gap: 0.8rem;
-    padding: 1.25rem 1rem;
+    column-gap: 0;
+    row-gap: 0.8rem;
+    padding-left: 1rem;
+    border-left-width: 4px;
+  }
+
+  .services-group__content {
+    padding-block: 1.5rem;
   }
 }
