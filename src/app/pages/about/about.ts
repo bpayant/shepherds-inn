@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 
 import { MessageForm } from '../../components/message-form/message-form';
+import { PageCta } from '../../components/page-cta/page-cta';
 import { ScheduleVisitForm } from '../../components/schedule-visit-form/schedule-visit-form';
+import { SITE_INFO } from '../../shared/site-info';
 
 @Component({
   selector: 'app-about',
-  imports: [RouterLink, MessageForm, ScheduleVisitForm],
+  standalone: true,
+  imports: [MessageForm, PageCta, ScheduleVisitForm],
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
 export class About {
+  readonly siteInfo = SITE_INFO;
   showMessageForm = false;
   showScheduleVisitForm = false;
 }

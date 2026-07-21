@@ -22,14 +22,12 @@ describe('Header', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should show the About comparison links in the required order', () => {
+  it('should link the About navigation item to the canonical route', () => {
     const header = fixture.nativeElement as HTMLElement;
     const links = Array.from(header.querySelectorAll<HTMLAnchorElement>('.main-nav a'));
-    const aboutLinkIndex = links.findIndex((link) => link.textContent?.trim() === 'About');
-    const aboutDraftLink = links[aboutLinkIndex + 1];
+    const aboutLinks = links.filter((link) => link.textContent?.trim() === 'About');
 
-    expect(links[aboutLinkIndex].getAttribute('href')).toBe('/about');
-    expect(aboutDraftLink.textContent?.trim()).toBe('About Draft');
-    expect(aboutDraftLink.getAttribute('href')).toBe('/about-operator');
+    expect(aboutLinks).toHaveLength(1);
+    expect(aboutLinks[0].getAttribute('href')).toBe('/about');
   });
 });

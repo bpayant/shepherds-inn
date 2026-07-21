@@ -4,7 +4,6 @@ import { About } from './pages/about/about';
 import { Services } from './pages/services/services';
 import { Photos } from './pages/photos/photos';
 import { Contact } from './pages/contact/contact';
-import { AboutOperator } from './pages/about-operator/about-operator';
 
 export const routes: Routes = [
   {
@@ -17,7 +16,8 @@ export const routes: Routes = [
   },
   {
     path: 'about-operator',
-    component: AboutOperator,
+    redirectTo: 'about',
+    pathMatch: 'full',
   },
   {
     path: 'services',
