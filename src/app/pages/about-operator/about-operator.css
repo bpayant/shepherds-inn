@@ -1,5 +1,5 @@
 .operator-about {
-  background: var(--color-background-main);
+  background: var(--color-page-background);
   padding: 3rem 0 2rem;
 }
 
@@ -41,7 +41,7 @@ h1,
 
 h1 {
   margin: 0 0 1rem;
-  color: var(--color-title-primary);
+  color: var(--color-heading);
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
 }
@@ -81,20 +81,20 @@ h1 {
 }
 
 .soft-section {
-  background: var(--color-background-main);
+  background: var(--color-page-background);
 }
 
 .next-level-section {
-  background: var(--color-background-soft);
+  background: var(--color-section-cool);
 }
 
 .next-level-section > .container {
-  border-bottom: 1px solid var(--color-divider);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .operator-section > .container {
   padding-block: 2.5rem;
-  border-top: 2px solid var(--color-divider);
+  border-top: 2px solid var(--color-border);
 }
 
 .split-layout {
@@ -248,7 +248,7 @@ blockquote {
 }
 
 .next-level-logo-card:focus-visible {
-  outline: 3px solid var(--color-action-primary);
+  outline: 3px solid var(--color-focus-outline);
   outline-offset: 4px;
 }
 
@@ -269,7 +269,7 @@ blockquote {
   grid-template-columns: minmax(0, 1fr);
   gap: 0.3rem;
   padding-left: 1rem;
-  border-left: 3px solid var(--color-title-secondary);
+  border-left: 3px solid var(--color-primary);
 }
 
 .principle-card {
@@ -305,7 +305,7 @@ blockquote {
   margin: 0;
   padding: 1.25rem;
   border-radius: 12px;
-  background: var(--color-title-secondary);
+  background: var(--color-primary);
   color: #ffffff;
   box-shadow: 0 6px 16px rgba(11, 53, 84, 0.14);
 }
@@ -390,5 +390,4 @@ blockquote {
   .director-photo-placeholder {
     min-height: 260px;
   }
-
 }

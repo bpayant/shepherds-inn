@@ -10,23 +10,27 @@
 }
 
 .cta-secondary-button {
-  min-width: 200px;
-  padding: 0.9rem 1.5rem;
-  border-color: #ffffff;
+  border-color: var(--color-on-primary);
   background: transparent;
-  color: #ffffff;
-  font-size: 1.1rem;
-  font-weight: 800;
+  color: var(--color-on-primary);
 }
 
-.cta-secondary-button:hover {
-  background: rgba(255, 255, 255, 0.12);
-  color: #ffffff;
+.cta-secondary-button:hover:not(:disabled) {
+  background: var(--color-on-primary-hover);
+  color: var(--color-on-primary);
 }
 
-.cta-secondary-button:focus-visible,
-.cta-light-button:focus-visible {
-  outline: 3px solid #ffffff;
+.cta-secondary-button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.cta-secondary-button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.cta-secondary-button:focus-visible {
+  outline: 3px solid var(--color-on-primary);
   outline-offset: 3px;
 }
 

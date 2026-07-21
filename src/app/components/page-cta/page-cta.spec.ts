@@ -32,7 +32,7 @@ describe('PageCta', () => {
     let emitted = false;
     component.primaryAction.subscribe(() => (emitted = true));
 
-    (fixture.nativeElement.querySelector('.cta-light-button') as HTMLButtonElement).click();
+    (fixture.nativeElement.querySelector('.button-light') as HTMLButtonElement).click();
 
     expect(emitted).toBe(true);
   });

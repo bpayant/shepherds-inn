@@ -3,16 +3,12 @@
   <p>{{ text }}</p>
 
   <div class="cta-actions">
-    <button type="button" class="button cta-light-button" (click)="primaryAction.emit()">
+    <button type="button" class="button button-light" (click)="primaryAction.emit()">
       {{ primaryButtonText }}
     </button>
 
     @if (secondaryButtonText) {
-      <button
-        type="button"
-        class="button cta-secondary-button"
-        (click)="secondaryAction.emit()"
-      >
+      <button type="button" class="button cta-secondary-button" (click)="secondaryAction.emit()">
         {{ secondaryButtonText }}
       </button>
     }

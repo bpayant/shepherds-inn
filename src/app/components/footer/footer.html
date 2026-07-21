@@ -2,19 +2,13 @@
   <div class="container footer-content">
     <div class="footer-column footer-address">
       <h4>The Shepherds Inn</h4>
-      <a
-        [href]="siteInfo.googleMapsUrl"
-        target="_blank"
-        rel="noopener"
-      >
+      <a [href]="siteInfo.googleMapsUrl" target="_blank" rel="noopener">
         {{ siteInfo.addressLine1 }}<br />
         {{ siteInfo.cityStateZip }}
       </a>
     </div>
 
     <div class="footer-column footer-contact">
-      <!-- <h4>Contact</h4> -->
-
       <p>
         <a [href]="'tel:' + siteInfo.phone">
           {{ siteInfo.phone }}
@@ -35,11 +29,7 @@
     <div class="footer-column footer-managed">
       <p>Proudly managed By</p>
 
-      <a
-        [href]="siteInfo.nextLevelUrl"
-        target="_blank"
-        rel="noopener"
-      >
+      <a [href]="siteInfo.nextLevelUrl" target="_blank" rel="noopener">
         <img
           src="/images/next-level-logo-inverted.png"
           alt="Next Level Senior Living"

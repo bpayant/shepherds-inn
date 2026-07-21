@@ -1,11 +1,1 @@
-/* Shared responsive */
-
-@media (max-width: 650px) {
-  .button {
-    display: block;
-    width: 100%;
-    text-align: center;
-    margin-right: 0;
-    margin-bottom: 0.75rem;
-  }
-}
+/* Application-shell styles are provided by the shared header, footer, and global design system. */

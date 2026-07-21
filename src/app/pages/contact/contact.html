@@ -2,12 +2,16 @@
   <div class="container contact-grid">
     <div class="contact-info">
       <p class="section-eyebrow">Contact Shepherds Inn</p>
-      <h1>We’d love to<br />
-        hear from you!</h1>
+      <h1>
+        We’d love to<br />
+        hear from you!
+      </h1>
 
       <div class="contact-card">
-        <h2>The Shepherds Inn<br />
-            Assisted Living</h2>
+        <h2>
+          The Shepherds Inn<br />
+          Assisted Living
+        </h2>
 
         <p>
           <strong>Address</strong><br />
@@ -24,20 +28,14 @@
 
         <p>
           <strong>Phone</strong><br />
-          <a 
-            class="address-link"
-            [href]="'tel:' + siteInfo.phone"
-          >
+          <a class="address-link" [href]="'tel:' + siteInfo.phone">
             {{ siteInfo.phone }}
           </a>
         </p>
 
         <p>
           <strong>Email</strong><br />
-          <a 
-            class="address-link"
-            [href]="'mailto:' + siteInfo.email"
-          >
+          <a class="address-link" [href]="'mailto:' + siteInfo.email">
             {{ siteInfo.email }}
           </a>
         </p>
@@ -45,7 +43,7 @@
         <div class="contact-actions">
           <button
             type="button"
-            class="button primary contact-button"
+            class="button button-primary contact-button"
             (click)="showScheduleVisitForm = true"
           >
             Schedule a Visit
@@ -59,7 +57,7 @@
 
           <button
             type="button"
-            class="button secondary contact-button"
+            class="button button-secondary contact-button"
             (click)="showMessageForm = true"
           >
             Send us a Message
@@ -70,13 +68,14 @@
               formTitle="Send us a Message"
               defaultSubject="General Inquiry"
               submitButtonText="Send Message"
-              (close)="showMessageForm = false">
+              (close)="showMessageForm = false"
+            >
             </app-message-form>
           }
         </div>
 
         <a
-          class="button secondary contact-button"
+          class="button button-secondary contact-button"
           [href]="siteInfo.googleMapsDirectionsUrl"
           target="_blank"
           rel="noopener"
@@ -91,7 +90,8 @@
         title="Map to Shepherds Inn Assisted Living"
         [src]="googleMapsEmbedUrl"
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
+        referrerpolicy="no-referrer-when-downgrade"
+      >
       </iframe>
     </div>
   </div>

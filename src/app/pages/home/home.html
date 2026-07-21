@@ -4,7 +4,8 @@
       <div class="container hero-content">
         <h1>Caring for Wells Families Since 1987</h1>
         <p class="hero-text">
-            For nearly four decades, The Shepherds Inn Assisted Living has been a trusted part of the Wells, MN community, providing personalized support in a warm, home-like setting.
+          For nearly four decades, The Shepherds Inn Assisted Living has been a trusted part of the
+          Wells, MN community, providing personalized support in a warm, home-like setting.
         </p>
         <!--
         <p class="hero-text">git remote add origin 
@@ -16,7 +17,7 @@
         <div class="hero-actions">
           <button
             type="button"
-            class="button primary"
+            class="button button-primary"
             (click)="showScheduleVisitForm = true"
           >
             SCHEDULE A VISIT
@@ -24,15 +25,13 @@
 
           <button
             type="button"
-            class="button secondary home-hero-button"
+            class="button button-secondary home-hero-button"
             (click)="showMessageForm = true"
           >
             CONTACT US
           </button>
-            
-          <a class="button secondary" routerLink="/photos">
-            RECENT EVENT PICS
-          </a>
+
+          <a class="button button-secondary" routerLink="/photos"> RECENT EVENT PICS </a>
         </div>
       </div>
     </div>
@@ -45,16 +44,16 @@
         <h2>A Place to Call Home</h2>
 
         <p>
-          Shepherds Inn is a small, caring community where seniors can enjoy
-          the support they need while maintaining independence and connection.
+          Shepherds Inn is a small, caring community where seniors can enjoy the support they need
+          while maintaining independence and connection.
         </p>
 
         <p>
-          Our dedicated staff is here to provide compassionate care in a
-          comfortable, homelike setting.
+          Our dedicated staff is here to provide compassionate care in a comfortable, homelike
+          setting.
         </p>
 
-        <a class="button primary" routerLink="/contact">Learn More About Us</a>
+        <a class="button button-primary" routerLink="/contact">Learn More About Us</a>
       </div>
 
       <div class="about-image">
@@ -97,7 +96,8 @@
       <h2>What Families Say</h2>
 
       <p class="reviews-intro">
-        Families appreciate the warm, home-like environment and caring support at Shepherds Inn in Wells, Minnesota.
+        Families appreciate the warm, home-like environment and caring support at Shepherds Inn in
+        Wells, Minnesota.
       </p>
 
       <div class="review-grid">
@@ -113,16 +113,11 @@
             </button>
 
             <article class="review-card featured-review">
-              <div
-                class="review-stars"
-                [attr.aria-label]="review.rating + ' out of 5 stars'"
-              >
+              <div class="review-stars" [attr.aria-label]="review.rating + ' out of 5 stars'">
                 {{ getReviewStars(review.rating) }}
               </div>
 
-              <p class="review-quote">
-                “{{ review.quote }}”
-              </p>
+              <p class="review-quote">“{{ review.quote }}”</p>
 
               <footer>
                 – {{ review.attribution }}
@@ -144,9 +139,7 @@
                 }
               </footer>
 
-              <div class="review-counter">
-                {{ currentReviewNumber }} of {{ reviews.length }}
-              </div>
+              <div class="review-counter">{{ currentReviewNumber }} of {{ reviews.length }}</div>
             </article>
 
             <button
@@ -169,8 +162,14 @@
       <h2>Community Photos</h2>
 
       <div class="photo-grid">
-        <img src="/images/shepherdsinn-assisted-living-garden1.jpg" alt="Garden patio at Shepherds Inn" />
-        <img src="/images/shepherdsinn-assisted-living-front-entrance1.jpg" alt="Front entrance of Shepherds Inn" />
+        <img
+          src="/images/shepherdsinn-assisted-living-garden1.jpg"
+          alt="Garden patio at Shepherds Inn"
+        />
+        <img
+          src="/images/shepherdsinn-assisted-living-front-entrance1.jpg"
+          alt="Front entrance of Shepherds Inn"
+        />
       </div>
     </div>
   </section>
@@ -180,14 +179,11 @@
       <div class="section-eyebrow">Contact</div>
       <h2>Interested in learning more?</h2>
 
-      <p>
-        Call us or send a message to ask about availability, services,
-        or scheduling a tour.
-      </p>
+      <p>Call us or send a message to ask about availability, services, or scheduling a tour.</p>
 
       <div class="contact-actions">
-        <a class="button primary" href="tel:5075536271">Call Shepherds Inn</a>
-        <a class="button secondary" routerLink="/contact">View Contact Page</a>
+        <a class="button button-primary" href="tel:5075536271">Call Shepherds Inn</a>
+        <a class="button button-secondary" routerLink="/contact">View Contact Page</a>
       </div>
     </div>
   </section>
@@ -202,7 +198,5 @@
 }
 
 @if (showScheduleVisitForm) {
-  <app-schedule-visit-form
-    (close)="showScheduleVisitForm = false"
-  ></app-schedule-visit-form>
+  <app-schedule-visit-form (close)="showScheduleVisitForm = false"></app-schedule-visit-form>
 }

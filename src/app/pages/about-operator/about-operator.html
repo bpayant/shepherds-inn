@@ -14,7 +14,7 @@
 
         <button
           type="button"
-          class="button page-top-button opening-top-button"
+          class="button button-primary page-top-button opening-top-button"
           (click)="showMessageForm = true"
         >
           Get in Touch
@@ -111,9 +111,9 @@
               families.
             </p>
             <p>
-              At Shepherds Inn, that means combining the trusted reputation and community roots built
-              over decades with the resources, experience, and continuous-improvement philosophy of
-              Next Level Senior Living.
+              At Shepherds Inn, that means combining the trusted reputation and community roots
+              built over decades with the resources, experience, and continuous-improvement
+              philosophy of Next Level Senior Living.
             </p>
           </div>
 
@@ -200,7 +200,5 @@
 }
 
 @if (showScheduleVisitForm) {
-  <app-schedule-visit-form
-    (close)="showScheduleVisitForm = false"
-  ></app-schedule-visit-form>
+  <app-schedule-visit-form (close)="showScheduleVisitForm = false"></app-schedule-visit-form>
 }

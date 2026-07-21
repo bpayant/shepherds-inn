@@ -1,6 +1,6 @@
 <dialog
   #dialog
-  class="visit-modal"
+  class="form-modal visit-modal"
   aria-modal="true"
   aria-labelledby="visit-dialog-title"
   (close)="onDialogClosed()"
@@ -20,7 +20,13 @@
 
       <p>{{ successMessage }}</p>
 
-      <button type="button" class="button primary modal-submit" (click)="closeForm()">Close</button>
+      <button
+        type="button"
+        class="button button-primary button-block modal-submit"
+        (click)="closeForm()"
+      >
+        Close
+      </button>
     </div>
   } @else {
     <h2 id="visit-dialog-title">Schedule a Visit</h2>
@@ -33,7 +39,7 @@
       </p>
     }
 
-    <form (ngSubmit)="submitForm()" [attr.aria-busy]="isSubmitting">
+    <form class="form-grid" (ngSubmit)="submitForm()" [attr.aria-busy]="isSubmitting">
       <div class="contact-fields">
         <label>
           <span class="label-row">
@@ -329,7 +335,11 @@
         </span>
       }
 
-      <button type="submit" class="button primary modal-submit" [disabled]="isSubmitting">
+      <button
+        type="submit"
+        class="button button-primary button-block modal-submit"
+        [disabled]="isSubmitting"
+      >
         {{ isSubmitting ? 'Sending...' : 'Submit Request' }}
       </button>
     </form>

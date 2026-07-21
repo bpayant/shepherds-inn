@@ -6,7 +6,7 @@
 
         <button
           type="button"
-          class="button page-top-button services-top-button"
+          class="button button-primary page-top-button services-top-button"
           (click)="showMessageForm = true"
         >
           Get in Touch
@@ -16,14 +16,14 @@
       <h1>Personalized Assisted Living in a Close-Knit Wells Community</h1>
 
       <p>
-        At Shepherds Inn, exceptional senior living starts with relationships. Our team takes time to know
-        each resident personally – their routines, preferences, personalities, and needs – so support feels familiar,
-        thoughtful, and responsive.
+        At Shepherds Inn, exceptional senior living starts with relationships. Our team takes time
+        to know each resident personally – their routines, preferences, personalities, and needs –
+        so support feels familiar, thoughtful, and responsive.
       </p>
 
       <p>
-        Families gain confidence knowing their loved one is cared for by familiar faces in a close-knit community
-        where people genuinely enjoy what they do.
+        Families gain confidence knowing their loved one is cared for by familiar faces in a
+        close-knit community where people genuinely enjoy what they do.
       </p>
     </div>
 
@@ -40,9 +40,9 @@
       <h2>Comfort That Feels Like Home</h2>
 
       <p>
-        Everyday life should feel familiar, not institutional. With meals, housekeeping,
-        laundry, activities, and welcoming spaces all part of daily life, residents can
-        spend less time worrying about chores and more time enjoying each day.
+        Everyday life should feel familiar, not institutional. With meals, housekeeping, laundry,
+        activities, and welcoming spaces all part of daily life, residents can spend less time
+        worrying about chores and more time enjoying each day.
       </p>
     </div>
 
@@ -60,9 +60,9 @@
       <h2>Personalized Care That Adapts With You</h2>
 
       <p>
-        Every resident receives an individualized care plan built around their needs,
-        preferences, and daily routines. As needs change, our team adjusts support thoughtfully
-        – helping residents stay as independent, comfortable, and confident as possible.
+        Every resident receives an individualized care plan built around their needs, preferences,
+        and daily routines. As needs change, our team adjusts support thoughtfully – helping
+        residents stay as independent, comfortable, and confident as possible.
       </p>
     </div>
 
@@ -101,9 +101,9 @@
       <h2>A Close-Knit Community</h2>
 
       <p>
-        Families often tell us what stands out first is not the building – it is the people. Residents
-        know one another, staff know each resident personally, and families are welcomed into a close-knit
-        community built around familiarity, kindness, and genuine connection.
+        Families often tell us what stands out first is not the building – it is the people.
+        Residents know one another, staff know each resident personally, and families are welcomed
+        into a close-knit community built around familiarity, kindness, and genuine connection.
       </p>
     </div>
 
@@ -125,11 +125,7 @@
       community, and talk with us about what your family needs.
     </p>
 
-    <button
-      type="button"
-      class="button cta-light-button"
-      (click)="showScheduleVisitForm = true"
-    >
+    <button type="button" class="button button-light" (click)="showScheduleVisitForm = true">
       Schedule a Visit
     </button>
   </section>
@@ -144,7 +140,5 @@
 }
 
 @if (showScheduleVisitForm) {
-  <app-schedule-visit-form
-    (close)="showScheduleVisitForm = false"
-  ></app-schedule-visit-form>
+  <app-schedule-visit-form (close)="showScheduleVisitForm = false"></app-schedule-visit-form>
 }

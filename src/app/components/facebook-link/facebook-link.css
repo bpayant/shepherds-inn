@@ -2,7 +2,7 @@
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  color: white;
+  color: var(--color-on-primary);
   text-decoration: none;
   justify-self: end;
 }
@@ -11,8 +11,16 @@
   width: 42px;
   height: 42px;
   display: block;
-  border-radius: 4px;
-  border: 1px solid white;
+  border: 1px solid var(--color-on-primary);
+  border-radius: var(--radius-small);
+}
+
+.facebook-link:hover {
+  color: var(--color-on-primary);
+}
+
+.facebook-link:focus-visible {
+  outline-color: var(--color-on-primary);
 }
 
 .facebook-text {

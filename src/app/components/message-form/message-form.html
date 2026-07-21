@@ -1,16 +1,11 @@
 <dialog
   #dialog
-  class="message-modal"
+  class="form-modal message-modal"
   aria-modal="true"
   aria-labelledby="message-dialog-title"
   (close)="onDialogClosed()"
 >
-  <button
-    type="button"
-    class="modal-close"
-    aria-label="Close message form"
-    (click)="closeForm()"
-  >
+  <button type="button" class="modal-close" aria-label="Close message form" (click)="closeForm()">
     &times;
   </button>
 
@@ -22,14 +17,13 @@
 
       <button
         type="button"
-        class="button primary modal-submit"
+        class="button button-primary button-block modal-submit"
         (click)="closeForm()"
       >
         Close
       </button>
     </div>
-  }
-  @else {
+  } @else {
     <h2 id="message-dialog-title">{{ formTitle }}</h2>
 
     @if (submitError) {
@@ -38,7 +32,7 @@
       </p>
     }
 
-    <form (ngSubmit)="submitForm()" [attr.aria-busy]="isSubmitting">
+    <form class="form-grid" (ngSubmit)="submitForm()" [attr.aria-busy]="isSubmitting">
       <label>
         <span class="label-row">
           Name
@@ -160,14 +154,12 @@
       />
 
       @if (isSubmitting) {
-        <span class="visually-hidden" role="status" aria-live="polite">
-          Sending message
-        </span>
+        <span class="visually-hidden" role="status" aria-live="polite"> Sending message </span>
       }
 
       <button
         type="submit"
-        class="button primary modal-submit"
+        class="button button-primary button-block modal-submit"
         [disabled]="isSubmitting"
       >
         {{ isSubmitting ? 'Sending...' : submitButtonText }}

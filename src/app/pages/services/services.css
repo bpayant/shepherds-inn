@@ -1,5 +1,5 @@
 .services-page {
-  background: var(--color-background-main);
+  background: var(--color-page-background);
   width: 100%;
   padding: 3rem 0 2rem;
 }
@@ -30,7 +30,7 @@
 }
 
 .services-hero {
-  background: var(--color-background-main);
+  background: var(--color-page-background);
   display: grid;
   grid-template-columns: minmax(0, 1fr) 430px;
   gap: 2rem;
@@ -53,8 +53,8 @@
 }
 
 .services-intro h1 {
-  color: var(--color-title-primary);
-  font-family: Georgia, "Times New Roman", serif;
+  color: var(--color-heading);
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
   margin: 0 0 1rem;
@@ -62,7 +62,7 @@
 
 .services-intro p,
 .section-copy p {
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
   font-size: 1.05rem;
   line-height: 1.65;
 }
@@ -77,22 +77,21 @@
 
 .intro-action-card h2 {
   color: #7a1020;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, 'Times New Roman', serif;
   margin: 0 0 0.5rem;
 }
 
 .service-section {
-  
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 1.25rem;
   padding: 2.5rem 0;
-  border-top: 2px solid var(--color-divider);
+  border-top: 2px solid var(--color-border);
 }
 
 .section-copy h2 {
-  color: var(--color-title-secondary);
-  font-family: Georgia, "Times New Roman", serif;
+  color: var(--color-primary);
+  font-family: Georgia, 'Times New Roman', serif;
   font-size: 1.8rem;
   margin: 0 0 0.6rem;
 }
@@ -110,7 +109,7 @@
   border: none;
   border-radius: 0;
   padding: 0.15rem 0;
-  color: var(--color-text);
+  color: var(--color-text-primary);
   font-size: 1.05rem;
   line-height: 1.35;
   box-shadow: none;
@@ -128,7 +127,7 @@
   }
 
   .services-top-button {
-      width: 100%;
+    width: 100%;
   }
 
   .services-hero,
