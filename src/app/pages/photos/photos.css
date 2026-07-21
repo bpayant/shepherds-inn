@@ -1,22 +1,21 @@
 .photos-page {
   background: var(--color-page-background);
-  padding: 3rem 0 4rem;
+  padding: var(--space-7) 0 var(--space-8);
 }
 
 .page-header {
   max-width: 760px;
-  margin: 0 auto 1.5rem;
+  margin: 0 auto var(--space-5);
   text-align: center;
 }
 
 .page-header .page-title {
   line-height: 1.1;
-  margin: 0 0 0.5rem;
+  margin: 0 0 var(--space-2);
 }
 
 .page-header .section-intro {
   max-width: none;
-  font-size: 1.1rem;
   font-style: italic;
   margin: 0;
 }
@@ -24,7 +23,7 @@
 .gallery-layout {
   display: grid;
   grid-template-columns: 70px 1fr 70px;
-  gap: 1rem;
+  gap: var(--space-4);
   align-items: center;
   max-width: 980px;
   margin: 0 auto;
@@ -67,7 +66,9 @@
   font-size: 3rem;
   cursor: pointer;
   line-height: 1;
-  transition: color var(--transition-standard);
+  transition:
+    color var(--transition-standard),
+    transform var(--transition-standard);
 }
 
 .photo-arrow:hover {
@@ -78,9 +79,9 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  gap: 1rem;
+  gap: var(--space-4);
   max-width: 980px;
-  margin: 1.5rem auto 1rem;
+  margin: var(--space-5) auto var(--space-4);
 }
 
 .month-nav h2 {
@@ -95,7 +96,9 @@
   color: var(--color-link);
   font-weight: 800;
   cursor: pointer;
-  transition: color var(--transition-standard);
+  transition:
+    color var(--transition-standard),
+    transform var(--transition-standard);
 }
 
 .month-link:hover:not(:disabled) {
@@ -118,7 +121,7 @@
 .thumbnail-area {
   display: grid;
   grid-template-columns: 44px 1fr 44px;
-  gap: 0.75rem;
+  gap: var(--space-3);
   align-items: center;
   max-width: 980px;
   margin: 0 auto;
@@ -131,19 +134,28 @@
   color: var(--color-primary);
   font-size: 1.8rem;
   cursor: pointer;
-  transition: color var(--transition-standard);
+  transition:
+    color var(--transition-standard),
+    transform var(--transition-standard);
 }
 
 .thumbnail-scroll-button:hover {
   color: var(--color-contrast-accent-hover);
 }
 
+.photo-arrow:active,
+.thumbnail-scroll-button:active,
+.month-link:active:not(:disabled) {
+  color: var(--color-primary-hover);
+  transform: translateY(1px);
+}
+
 .thumbnail-strip {
   display: flex;
-  gap: 1rem;
+  gap: var(--space-4);
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 1rem 0 0.5rem;
+  padding: var(--space-4) 0 var(--space-2);
 }
 
 .thumbnail-strip::-webkit-scrollbar {
@@ -166,7 +178,8 @@
   box-shadow: var(--shadow-small);
   transition:
     border-color var(--transition-standard),
-    box-shadow var(--transition-standard);
+    box-shadow var(--transition-standard),
+    transform var(--transition-standard);
 }
 
 .thumbnail-button:hover {
@@ -176,6 +189,12 @@
 
 .thumbnail-button.active {
   border-color: var(--color-contrast-accent);
+  box-shadow: var(--shadow-medium);
+}
+
+.thumbnail-button:active {
+  box-shadow: var(--shadow-small);
+  transform: scale(0.98);
 }
 
 .thumbnail-button img {
@@ -196,7 +215,7 @@
 
 @media (max-width: 700px) {
   .photos-page {
-    padding: 2rem 0 3rem;
+    padding: var(--space-6) 0 var(--space-7);
   }
 
   .gallery-layout {
