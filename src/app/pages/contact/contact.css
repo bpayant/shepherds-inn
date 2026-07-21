@@ -6,7 +6,7 @@
 
 .contact-grid {
   display: grid;
-  grid-template-columns: 400px 1fr;
+  grid-template-columns: minmax(360px, 0.9fr) minmax(0, 1.6fr);
   gap: 2rem;
   align-items: stretch;
 }
@@ -18,24 +18,41 @@
 
 .contact-card,
 .map-card {
+  border: 1px solid var(--color-border);
   background: var(--color-surface);
   border-radius: var(--radius-large);
   box-shadow: var(--shadow-medium);
 }
 
 .contact-card {
-  padding: var(--space-4);
+  padding: clamp(1.25rem, 2vw, 2rem);
   flex: 1;
 }
 
-.contact-info .page-title {
-  line-height: 1.05;
+.contact-heading-accent {
   margin-bottom: var(--space-5);
+  padding-left: clamp(0.9rem, 2vw, 1.25rem);
+  border-left: 5px solid var(--color-contrast-accent);
 }
 
-.contact-card .section-title {
-  font-size: 2.5rem;
-  line-height: 1.15;
+.contact-info .page-title {
+  margin-bottom: 0;
+  line-height: 1.05;
+}
+
+.contact-card-title {
+  color: var(--color-contrast-accent);
+  font-size: clamp(2rem, 2.6vw, 2.75rem);
+  line-height: 1.08;
+}
+
+.contact-card-title__name,
+.contact-card-title__type {
+  display: block;
+}
+
+.contact-card-title__name {
+  white-space: nowrap;
 }
 
 .contact-card p {
@@ -45,6 +62,7 @@
 
 .contact-card strong {
   font-size: 1.1rem;
+  color: var(--color-text-primary);
 }
 
 .contact-card .address-link {
@@ -72,6 +90,12 @@
 
   font-size: 1.3rem;
   line-height: 1.1;
+}
+
+.contact-secondary-button {
+  border-color: var(--color-contrast-accent);
+  background: var(--color-surface);
+  color: var(--color-contrast-accent-hover);
 }
 
 .map-card {
@@ -102,12 +126,21 @@
     line-height: 1.1;
   }
 
+  .contact-heading-accent {
+    padding-left: 0.9rem;
+    border-left-width: 4px;
+  }
+
   .contact-card {
     padding: 1.25rem;
   }
 
-  .contact-card .section-title {
+  .contact-card-title {
     font-size: 1.8rem;
+  }
+
+  .contact-card-title__name {
+    white-space: normal;
   }
 
   .contact-card p {

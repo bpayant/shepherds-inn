@@ -1,16 +1,20 @@
 <section class="contact-page">
   <div class="container contact-grid">
     <div class="contact-info">
-      <p class="section-eyebrow">Contact Shepherds Inn</p>
-      <h1 class="page-title">
-        We’d love to<br />
-        hear from you!
-      </h1>
+      <div class="contact-intro">
+        <p class="section-eyebrow">Contact Shepherds Inn</p>
+        <div class="contact-heading-accent">
+          <h1 class="page-title">
+            We’d love to<br />
+            hear from you!
+          </h1>
+        </div>
+      </div>
 
       <div class="contact-card">
-        <h2 class="section-title">
-          The Shepherds Inn<br />
-          Assisted Living
+        <h2 class="section-title contact-card-title">
+          <span class="contact-card-title__name">The Shepherds Inn</span>
+          <span class="contact-card-title__type">Assisted Living</span>
         </h2>
 
         <p>
@@ -57,7 +61,7 @@
 
           <button
             type="button"
-            class="button button-secondary contact-button"
+            class="button button-secondary contact-button contact-secondary-button"
             (click)="showMessageForm = true"
           >
             Send us a Message
@@ -75,7 +79,7 @@
         </div>
 
         <a
-          class="button button-secondary contact-button"
+          class="button button-secondary contact-button contact-secondary-button"
           [href]="siteInfo.googleMapsDirectionsUrl"
           target="_blank"
           rel="noopener"
