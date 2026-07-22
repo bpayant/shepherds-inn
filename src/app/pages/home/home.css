@@ -1,305 +1,305 @@
+:host {
+  display: block;
+}
+
+.home-page {
+  background: var(--color-page-background);
+}
+
 /* Hero */
 
-.hero {
+.hero,
+.hero-overlay {
   min-height: 650px;
-  background-image: url("/images/shepherdsinn-assisted-living-garden1.jpg");
-  background-size: cover;
+}
+
+.hero {
+  background-image: url('/images/shepherdsinn-assisted-living-garden1.jpg');
   background-position: center;
+  background-size: cover;
 }
 
 .hero-overlay {
-  min-height: 650px;
   display: flex;
   align-items: center;
   background: linear-gradient(
     90deg,
-    rgba(0, 0, 0, 0.50) 0%,
-    rgba(0, 0, 0, 0.30) 38%,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.3) 38%,
     rgba(0, 0, 0, 0.08) 72%,
-    rgba(0, 0, 0, 0.00) 100%
+    rgba(0, 0, 0, 0) 100%
   );
 }
 
 .hero-content {
-  padding: 5rem 0;
+  padding-block: 5rem;
 }
 
 .hero h1 {
-  color: white;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(2.6rem, 5vw, 4.8rem);
-  line-height: 1.05;
   max-width: 780px;
   margin: 0 0 1.25rem;
+  color: var(--color-white);
+  font-size: clamp(2.6rem, 5vw, 4.8rem);
+  line-height: 1.05;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
 }
 
-.hero h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 2.75rem;
-  font-weight: 700;
-  line-height: 1.15;
-  color: white;
-  margin: 0 0 1rem;
-}
-
 .hero-text {
-  color: white;
-  font-size: 1.35rem;
   max-width: 640px;
   margin: 0 0 1.75rem;
+  color: var(--color-white);
+  font-size: 1.35rem;
   text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
-/* About */
+/* Shared Home section structure */
 
-.about {
-  padding: 4.5rem 0;
-  background: #fbf8f2;
+.home-section {
+  padding-block: var(--layout-section-spacing);
 }
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 4rem;
-  align-items: center;
+.home-section-heading {
+  max-width: 850px;
+  margin-bottom: var(--space-6);
 }
 
-.section-eyebrow {
-  color: #0b4a6f;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 800;
-  font-size: 0.85rem;
-  margin-bottom: 0.75rem;
+.home-section-heading .section-intro {
+  margin-bottom: 0;
 }
 
-.about h2,
-.section h2,
-.contact-preview h2 {
-  font-family: Georgia, "Times New Roman", serif;
-  color: #0b3554;
-  font-size: 2.25rem;
-  line-height: 1.15;
-  margin: 0 0 1rem;
-}
-
-.about p,
-.section p,
-.contact-preview p {
+.home-section p {
+  color: var(--color-text-secondary);
   font-size: 1.05rem;
 }
 
-.about-image img {
-  width: 100%;
-  display: block;
-  border-radius: 12px;
-  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.12);
+/* Why families choose Shepherds Inn */
+
+.why-section {
+  background: var(--color-section-cool);
 }
 
-/* Sections */
-
-.section {
-  padding: 4.5rem 0;
+.why-heading {
+  max-width: 900px;
 }
 
-.section-soft {
-  background: #f5f8fa;
-}
-
-/* Cards */
-
-.cards {
+.reason-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-6) clamp(2rem, 5vw, 5rem);
 }
 
-.card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+.reason-item {
+  padding-left: var(--space-5);
+  border-left: 4px solid var(--color-contrast-accent);
 }
 
-.card h3 {
-  color: #0b3554;
-  margin-top: 0;
+.reason-item h3,
+.service-summary-item h3 {
+  margin: 0 0 var(--space-2);
+  color: var(--color-heading);
 }
 
-/* Photos */
+.reason-item p,
+.service-summary-item p {
+  margin-bottom: 0;
+}
 
-.photo-grid {
+/* About summary */
+
+.summary-layout {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: 1.5rem;
+  grid-template-columns: minmax(0, 0.9fr) minmax(360px, 1.1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
 }
 
-.photo-grid img {
-  width: 100%;
-  height: 330px;
-  object-fit: cover;
-  border-radius: 12px;
-  display: block;
+.summary-copy {
+  max-width: 680px;
 }
 
-/* Contact preview */
-
-.contact-preview {
-  text-align: center;
-}
-
-.contact-preview p {
-  max-width: 650px;
-  margin: 0 auto 1.5rem;
-}
-
-button.button {
-  appearance: none;
-  font-family: inherit;
-  font-size: inherit;
+.home-section .summary-emphasis {
+  color: var(--color-heading);
   font-weight: 700;
-  letter-spacing: inherit;
-  cursor: pointer;
 }
 
-
-/* Reviews */
-
-.reviews-section {
-  background: #fbf8f2;
+.summary-photo {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-large);
+  box-shadow: var(--shadow-medium);
 }
 
-.reviews-intro {
-  max-width: 720px;
-  margin: 0 0 1.5rem;
-  font-size: 1.05rem;
+.summary-photo img {
+  display: block;
+  width: 100%;
+  height: clamp(280px, 32vw, 440px);
+  object-fit: cover;
 }
 
-.review-carousel {
+/* Services summary */
+
+.services-summary {
+  border-top: 1px solid var(--color-border);
+}
+
+.service-summary-grid {
   display: grid;
-  grid-template-columns: 48px minmax(0, 850px) 48px;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 clamp(2rem, 5vw, 5rem);
 }
 
-.featured-review {
-  min-height: 250px;
+.service-summary-item {
+  padding-block: var(--space-5);
+  border-top: 1px solid var(--color-border);
+}
+
+.services-summary-footer {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  margin-top: var(--space-5);
 }
 
-.review-arrow {
-  appearance: none;
-  border: none;
-  background: transparent;
-  color: #0b4a6f;
-  font-family: inherit;
-  font-size: 2.4rem;
-  line-height: 1;
-  padding: 0.25rem;
-  cursor: pointer;
+.services-summary-footer p {
+  max-width: var(--layout-readable-max);
+  margin-bottom: 0;
+  font-style: italic;
 }
 
-.review-arrow:hover {
-  color: #7a1020;
+.services-summary-footer .button {
+  flex-shrink: 0;
 }
 
-.review-counter {
-  color: #5f6b75;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-top: 0.75rem;
+/* Peace of mind */
+
+.peace-section {
+  background: var(--color-section-warm);
 }
 
-.review-card {
-  background: white;
-  border-radius: 14px;
-  padding: 1.35rem 1.5rem;
-  border-left: 5px solid #0b4a6f;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+.peace-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: center;
+}
+
+.peace-layout > div:first-child {
+  max-width: 760px;
+}
+
+.peace-reassurance {
+  padding-left: var(--space-6);
+  border-left: 5px solid var(--color-contrast-accent);
+}
+
+.peace-reassurance p {
+  color: var(--color-heading);
+  font-size: var(--font-size-large);
+  font-weight: 700;
+}
+
+/* Featured testimonial */
+
+.testimonial-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.testimonial-layout .home-section-heading {
+  margin-bottom: 0;
+}
+
+.featured-testimonial {
+  margin: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border-left: 5px solid var(--color-contrast-accent);
+  border-radius: 0 var(--radius-large) var(--radius-large) 0;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-small);
 }
 
 .review-stars {
-  color: #7a1020;
-  font-size: 1.1rem;
+  margin-bottom: var(--space-3);
+  color: var(--color-contrast-accent-hover);
+  font-size: var(--font-size-large);
   letter-spacing: 0.08em;
-  margin-bottom: 0.65rem;
 }
 
-.review-quote {
-  margin: 0 0 1rem;
-  font-size: 1.05rem;
-  line-height: 1.55;
-  color: #1f2933;
+.featured-testimonial blockquote {
+  margin: 0 0 var(--space-4);
+  color: var(--color-text-primary);
+  font-family: var(--font-family-heading);
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.5;
 }
 
-.review-card footer {
-  color: #0b4a6f;
-  font-weight: 700;
+.featured-testimonial figcaption {
+  color: var(--color-primary);
 }
 
-.review-card footer span {
+.featured-testimonial figcaption span {
   display: block;
-  color: #5f6b75;
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-top: 0.15rem;
+  margin-top: var(--space-1);
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-small);
+}
+
+app-page-cta {
+  display: block;
+  padding-bottom: var(--space-6);
 }
 
 @media (max-width: 800px) {
-  .review-carousel {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .featured-review {
-    grid-column: 1 / -1;
-    grid-row: 1;
-  }
-
-  .review-arrow.previous {
-    grid-column: 1;
-    grid-row: 2;
-    justify-self: end;
-  }
-
-  .review-arrow.next {
-    grid-column: 2;
-    grid-row: 2;
-    justify-self: start;
-  }
-}
-
-
-/* Responsive */
-
-@media (max-width: 820px) {
-  .about-grid,
-  .cards,
-  .photo-grid {
+  .summary-layout,
+  .peace-layout,
+  .testimonial-layout {
     grid-template-columns: 1fr;
   }
+
+  .summary-photo {
+    grid-row: 2;
+  }
+
+  .summary-photo img {
+    height: min(55vw, 380px);
+  }
+
+  .services-summary-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .peace-reassurance {
+    padding-left: var(--space-5);
+    border-left-width: 4px;
+  }
+
+  .testimonial-layout {
+    gap: var(--space-5);
+  }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
   .hero,
   .hero-overlay {
     min-height: 560px;
   }
 
   .hero-overlay {
-    background: rgba(0, 0, 0, 0.42);
+    background: var(--color-overlay);
+  }
+
+  .hero-content {
+    padding-block: var(--space-8);
   }
 
   .hero h1 {
@@ -307,6 +307,34 @@ button.button {
   }
 
   .hero-text {
-    font-size: 1.1rem;
+    font-size: var(--font-size-large);
+  }
+
+  .hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .hero-actions .button,
+  .services-summary-footer .button,
+  .peace-reassurance .button {
+    width: 100%;
+  }
+
+  .reason-grid,
+  .service-summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reason-grid {
+    gap: var(--space-5);
+  }
+
+  .summary-photo img {
+    height: 260px;
+  }
+
+  .featured-testimonial {
+    border-radius: 0 var(--radius-medium) var(--radius-medium) 0;
   }
 }

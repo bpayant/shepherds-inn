@@ -1,4 +1,4 @@
-<main>
+<main class="home-page">
   <section class="hero" id="home">
     <div class="hero-overlay">
       <div class="container hero-content">
@@ -7,12 +7,6 @@
           For nearly four decades, The Shepherds Inn Assisted Living has been a trusted part of the
           Wells, MN community, providing personalized support in a warm, home-like setting.
         </p>
-        <!--
-        <p class="hero-text">git remote add origin 
-          Personalized support, home-cooked meals, medication assistance,
-          and a welcoming community environment.
-        </p>
-        -->
 
         <div class="hero-actions">
           <button
@@ -23,11 +17,7 @@
             SCHEDULE A VISIT
           </button>
 
-          <button
-            type="button"
-            class="button button-secondary home-hero-button"
-            (click)="showMessageForm = true"
-          >
+          <button type="button" class="button button-secondary" (click)="showMessageForm = true">
             CONTACT US
           </button>
 
@@ -37,156 +27,198 @@
     </div>
   </section>
 
-  <section class="about" id="about">
-    <div class="container about-grid">
-      <div class="about-text">
-        <div class="section-eyebrow">About Shepherds Inn</div>
-        <h2>A Place to Call Home</h2>
-
-        <p>
-          Shepherds Inn is a small, caring community where seniors can enjoy the support they need
-          while maintaining independence and connection.
+  <section class="home-section why-section" aria-labelledby="why-title">
+    <div class="container">
+      <div class="home-section-heading why-heading">
+        <p class="section-eyebrow">The Shepherds Inn Difference</p>
+        <h2 id="why-title" class="section-title">Why Families Choose Shepherds Inn</h2>
+        <p class="section-intro">
+          Families choose Shepherds Inn for the personal attention of a smaller community, the
+          consistency of familiar caregivers, and a team that remains closely connected to residents
+          and their families.
         </p>
-
-        <p>
-          Our dedicated staff is here to provide compassionate care in a comfortable, homelike
-          setting.
-        </p>
-
-        <a class="button button-primary" routerLink="/contact">Learn More About Us</a>
       </div>
 
-      <div class="about-image">
+      <div class="reason-grid">
+        <article class="reason-item">
+          <h3>Smaller Community, Personal Attention</h3>
+          <p>
+            A close-knit setting where residents are truly known and care never feels
+            one-size-fits-all.
+          </p>
+        </article>
+
+        <article class="reason-item">
+          <h3>Familiar People You Can Trust</h3>
+          <p>
+            Consistent caregivers and approachable leadership help residents and families build
+            dependable relationships.
+          </p>
+        </article>
+
+        <article class="reason-item">
+          <h3>Care That Responds</h3>
+          <p>
+            Individualized care plans evolve as needs change, with a team that can respond quickly
+            and thoughtfully.
+          </p>
+        </article>
+
+        <article class="reason-item">
+          <h3>Open, Local Leadership</h3>
+          <p>
+            Families receive clear communication and decisions are guided by people who know the
+            community personally.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="home-section about-summary" aria-labelledby="about-summary-title">
+    <div class="container summary-layout">
+      <div class="summary-copy">
+        <p class="section-eyebrow">About Shepherds Inn</p>
+        <h2 id="about-summary-title" class="section-title">
+          Rooted in Wells. Centered on Community.
+        </h2>
+        <p>
+          Shepherds Inn has served Wells-area families for more than three decades. Our smaller
+          setting allows residents to be known personally, form meaningful relationships, and remain
+          connected to the community they call home.
+        </p>
+        <p class="summary-emphasis">Here, daily life feels familiar, personal, and connected.</p>
+        <a class="button button-secondary" routerLink="/about">Learn About Shepherds Inn</a>
+      </div>
+
+      <figure class="summary-photo">
         <img
           src="/images/shepherdsinn-assisted-living-front-entrance1.jpg"
           alt="Front entrance of Shepherds Inn Assisted Living"
         />
+      </figure>
+    </div>
+  </section>
+
+  <section class="home-section services-summary" aria-labelledby="services-summary-title">
+    <div class="container">
+      <div class="home-section-heading">
+        <p class="section-eyebrow">Care and Support</p>
+        <h2 id="services-summary-title" class="section-title">
+          Personalized Support for Everyday Living
+        </h2>
+        <p class="section-intro">
+          Residents receive the right balance of support, independence, comfort, and
+          connection&mdash;shaped around their individual routines and changing needs.
+        </p>
+      </div>
+
+      <div class="service-summary-grid">
+        <article class="service-summary-item">
+          <h3>Personalized Assisted Living</h3>
+          <p>
+            Support with daily routines, personal care, and changing needs while preserving
+            independence and choice.
+          </p>
+        </article>
+
+        <article class="service-summary-item">
+          <h3>Medication and Wellness Support</h3>
+          <p>Thoughtful assistance that helps residents remain comfortable, safe, and supported.</p>
+        </article>
+
+        <article class="service-summary-item">
+          <h3>Meals, Housekeeping, and Daily Comforts</h3>
+          <p>
+            Fresh meals and everyday services that make life easier and allow residents to focus on
+            what matters.
+          </p>
+        </article>
+
+        <article class="service-summary-item">
+          <h3>Life Enrichment and Connection</h3>
+          <p>
+            Activities, shared meals, and everyday moments give residents opportunities to stay
+            engaged and build relationships naturally.
+          </p>
+        </article>
+      </div>
+
+      <div class="services-summary-footer">
+        <p>
+          Short-term and respite stays may also be available for families needing temporary support.
+        </p>
+        <a class="button button-secondary" routerLink="/services">Explore Our Services</a>
       </div>
     </div>
   </section>
 
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-eyebrow">Care & Support</div>
-      <h2>Services designed around daily comfort</h2>
+  <section class="home-section peace-section" aria-labelledby="peace-title">
+    <div class="container peace-layout">
+      <div>
+        <p class="section-eyebrow">Guidance for Families</p>
+        <h2 id="peace-title" class="section-title">Peace of Mind Starts Here</h2>
+        <p>
+          Choosing assisted living can feel overwhelming. From the first tour through move-in and
+          beyond, our team is here to answer questions, provide guidance, and help your family feel
+          confident every step of the way.
+        </p>
+      </div>
 
-      <div class="cards">
-        <article class="card">
-          <h3>Assisted Living</h3>
-          <p>Support with daily routines in a comfortable residential environment.</p>
-        </article>
-
-        <article class="card">
-          <h3>Medication Support</h3>
-          <p>Medication reminders and assistance coordinated with care needs.</p>
-        </article>
-
-        <article class="card">
-          <h3>Meals & Housekeeping</h3>
-          <p>Nutritious meals, laundry, housekeeping, and help with everyday tasks.</p>
-        </article>
+      <div class="peace-reassurance">
+        <p>
+          Questions are encouraged. Communication is open. And you will always know someone is here
+          who truly cares.
+        </p>
+        <button type="button" class="button button-primary" (click)="showScheduleVisitForm = true">
+          Schedule a Visit
+        </button>
       </div>
     </div>
   </section>
 
-  <section class="section reviews-section">
-    <div class="container">
-      <div class="section-eyebrow">Reviews</div>
+  @if (featuredReview; as review) {
+    <section class="home-section testimonial-section" aria-labelledby="testimonial-title">
+      <div class="container testimonial-layout">
+        <div class="home-section-heading">
+          <p class="section-eyebrow">A Family Perspective</p>
+          <h2 id="testimonial-title" class="section-title">What Families Say</h2>
+        </div>
 
-      <h2>What Families Say</h2>
-
-      <p class="reviews-intro">
-        Families appreciate the warm, home-like environment and caring support at Shepherds Inn in
-        Wells, Minnesota.
-      </p>
-
-      <div class="review-grid">
-        @if (currentReview; as review) {
-          <div class="review-carousel" aria-live="polite">
-            <button
-              type="button"
-              class="review-arrow previous"
-              (click)="previousReview()"
-              aria-label="Show previous review"
-            >
-              ◀
-            </button>
-
-            <article class="review-card featured-review">
-              <div class="review-stars" [attr.aria-label]="review.rating + ' out of 5 stars'">
-                {{ getReviewStars(review.rating) }}
-              </div>
-
-              <p class="review-quote">“{{ review.quote }}”</p>
-
-              <footer>
-                – {{ review.attribution }}
-
-                @if (review.source || review.year) {
-                  <span>
-                    @if (review.source) {
-                      {{ review.source }}
-                    }
-
-                    @if (review.source && review.year) {
-                      ·
-                    }
-
-                    @if (review.year) {
-                      {{ review.year }}
-                    }
-                  </span>
-                }
-              </footer>
-
-              <div class="review-counter">{{ currentReviewNumber }} of {{ reviews.length }}</div>
-            </article>
-
-            <button
-              type="button"
-              class="review-arrow next"
-              (click)="nextReview()"
-              aria-label="Show next review"
-            >
-              ▶
-            </button>
+        <figure class="featured-testimonial">
+          <div class="review-stars" [attr.aria-label]="review.rating + ' out of 5 stars'">
+            {{ getReviewStars(review.rating) }}
           </div>
-        }
+          <blockquote>&ldquo;{{ review.quote }}&rdquo;</blockquote>
+          <figcaption>
+            <strong>{{ review.attribution }}</strong>
+            @if (review.source || review.year) {
+              <span>
+                @if (review.source) {
+                  {{ review.source }}
+                }
+                @if (review.source && review.year) {
+                  &middot;
+                }
+                @if (review.year) {
+                  {{ review.year }}
+                }
+              </span>
+            }
+          </figcaption>
+        </figure>
       </div>
-    </div>
-  </section>
+    </section>
+  }
 
-  <section class="section section-soft" id="photos">
-    <div class="container">
-      <div class="section-eyebrow">Photos</div>
-      <h2>Community Photos</h2>
-
-      <div class="photo-grid">
-        <img
-          src="/images/shepherdsinn-assisted-living-garden1.jpg"
-          alt="Garden patio at Shepherds Inn"
-        />
-        <img
-          src="/images/shepherdsinn-assisted-living-front-entrance1.jpg"
-          alt="Front entrance of Shepherds Inn"
-        />
-      </div>
-    </div>
-  </section>
-
-  <section class="section contact-preview" id="contact-preview">
-    <div class="container">
-      <div class="section-eyebrow">Contact</div>
-      <h2>Interested in learning more?</h2>
-
-      <p>Call us or send a message to ask about availability, services, or scheduling a tour.</p>
-
-      <div class="contact-actions">
-        <a class="button button-primary" href="tel:5075536271">Call Shepherds Inn</a>
-        <a class="button button-secondary" routerLink="/contact">View Contact Page</a>
-      </div>
-    </div>
-  </section>
+  <app-page-cta
+    title="Come Experience Shepherds Inn"
+    text="Meet our team, explore our community, and see whether Shepherds Inn feels right for your family."
+    primaryButtonText="Schedule a Visit"
+    secondaryButtonText="Get in Touch"
+    (primaryAction)="showScheduleVisitForm = true"
+    (secondaryAction)="showMessageForm = true"
+  ></app-page-cta>
 </main>
 
 @if (showMessageForm) {
